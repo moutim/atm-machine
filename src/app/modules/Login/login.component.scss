@@ -1,0 +1,65 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 110px;
+  background-color: white;
+
+  .line {
+    width: 1px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    h2 {
+      font-weight: 400;
+      font-size: 22px;
+    }
+
+    span {
+      color: #75FB4C;
+      font-size: 65px;
+    }
+  }
+}
+
+body {
+  background-color: #F1F1F1;
+
+  section {
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+
+    .article-bills {
+      .ad {
+        img {
+          width: 600px;
+          border-radius: 10px;
+        }
+      }
+
+      .bills {
+        h4 {
+          font-size: 25px;
+          font-weight: 500;
+          margin: 20px 0;
+        }
+
+        >div {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          font-size: 20px;
+          font-weight: 500;
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+}

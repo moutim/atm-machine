@@ -13,7 +13,16 @@ export class LoginComponent {
 
   ngOnInit() {
     this.forms = this.formBuilder.group({
-      email: [null, [Validators.required]],
+      CPF: ['', [Validators.required, Validators.minLength(14), Validators.maxLength(14)]],
+      password: ['', [Validators.required, Validators.minLength(5)]],
     })
+  }
+
+  onSubmit() {
+    if (this.forms.valid) {
+      console.log('Form Submitted:', this.forms.value);
+    } else {
+      console.log('Form is invalid');
+    }
   }
 }

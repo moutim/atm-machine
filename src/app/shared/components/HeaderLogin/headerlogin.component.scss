@@ -1,0 +1,29 @@
+.header-login {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 110px;
+  background-color: white;
+
+  .line {
+    width: 1px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    h2 {
+      font-weight: 400;
+      font-size: 19px;
+    }
+
+    span {
+      color: #75FB4C;
+      font-size: 65px;
+    }
+  }
+}

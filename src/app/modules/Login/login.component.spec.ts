@@ -12,7 +12,7 @@ describe('LoginComponent', () => {
       declarations: [LoginComponent],
       imports: [ReactiveFormsModule]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;

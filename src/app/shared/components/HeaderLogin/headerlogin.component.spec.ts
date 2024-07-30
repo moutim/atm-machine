@@ -10,7 +10,7 @@ describe('HeaderloginComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [HeaderloginComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(HeaderloginComponent);
     component = fixture.componentInstance;

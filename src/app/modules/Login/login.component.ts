@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   forms: FormGroup = this.formBuilder.group({});
 
   constructor(private formBuilder: FormBuilder) { }
@@ -15,7 +15,7 @@ export class LoginComponent {
     this.forms = this.formBuilder.group({
       CPF: ['', [Validators.required, Validators.minLength(14), Validators.maxLength(14)]],
       password: ['', [Validators.required, Validators.minLength(5)]],
-    })
+    });
   }
 
   onSubmit() {

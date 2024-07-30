@@ -1,0 +1,20 @@
+<article class="article-register">
+  <div>
+    <i><span class="material-symbols-outlined">arrow_back</span></i>
+    Voltar
+  </div>
+
+  <div class="register-forms">
+    <h3>crie sua conta</h3>
+
+    <form [formGroup]="forms" (ngSubmit)="onSubmit()">
+      <input type="text" placeholder="Nome" formControlName="firstName">
+      <input type="text" placeholder="Sobrenome" formControlName="lastName">
+      <input type="text" placeholder="cpf" formControlName="CPF">
+      <input type="password" placeholder="senha" formControlName="password">
+      <input type="password" placeholder="senha" formControlName="passwordConfirm">
+
+      <button type="submit" [disabled]="forms.invalid">acessar</button>
+    </form>
+  </div>
+</article>

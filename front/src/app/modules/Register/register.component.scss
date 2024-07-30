@@ -1,0 +1,17 @@
+@import '../../../variables.scss';
+
+.article-register {
+  display: flex;
+  flex-direction: column;
+  box-shadow: $box-shadow-login;
+  background-color: white;
+  width: 750px;
+  margin: auto;
+
+  .register-forms {
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

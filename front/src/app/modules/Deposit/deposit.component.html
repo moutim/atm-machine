@@ -1,0 +1,47 @@
+<article class="article-deposit">
+  <button class="button-return" (click)="navigateToLogin()">
+    voltar
+    <i><span class="material-symbols-outlined">arrow_back</span></i>
+  </button>
+
+  <div class="deposit-forms">
+    <div *ngIf="!cpfExists && !depositMade">
+      <h1>depósito</h1>
+
+      <form [formGroup]="forms" (ngSubmit)="onSubmit()">
+        <input type="text" placeholder="cpf" formControlName="CPF" appCpfFormat>
+        <span *ngIf="forms.get('CPF')?.invalid && forms.get('CPF')?.touched" class="span-error">
+          O CPF deve ter 11 dígitos
+        </span>
+
+        <input type="number" placeholder="valor" formControlName="value">
+
+
+        <button type="submit" [disabled]="forms.invalid">continuar</button>
+      </form>
+    </div>
+
+    <div class="deposit-confirm" *ngIf="cpfExists">
+      <h2>dados do depósito</h2>
+
+      <ul class="info-list">
+        <li>nome: <span>Vitor</span></li>
+        <li>sobrenome: <span>Moutim</span></li>
+        <li>cpf: <span>512.255.118-95</span></li>
+        <li>valor: <span>R$ 550</span></li>
+      </ul>
+
+      <div class="buttons-deposit">
+        <button class="confirm" (click)="confirmDeposit()">confirmar</button>
+        <button class="cancel" (click)="cancelDeposit()">cancelar</button>
+      </div>
+    </div>
+
+    <div class="deposit-made" *ngIf="depositMade">
+      <span class="material-symbols-outlined">
+        task_alt
+      </span>
+      <p>depósito realizado com sucesso!</p>
+    </div>
+  </div>
+</article>

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-button',
@@ -10,4 +11,13 @@ export class ButtonComponent {
   @Input() subtitle: string = '';
   @Input() icon: string = '';
   @Input() highlight: boolean = false;
+  @Input() route: string = '';
+
+  constructor(private router: Router) { }
+
+  navigateTo() {
+    console.log('dddd');
+
+    this.router.navigate([`/atm/${this.route}`]);
+  }
 }

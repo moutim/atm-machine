@@ -5,6 +5,7 @@ import { RegisterComponent } from './modules/Register/register.component';
 import { DepositComponent } from './modules/Deposit/deposit.component';
 import { OperationsComponent } from './modules/Operations/operations.component';
 import { WithdrawComponent } from './modules/Withdraw/withdraw.component';
+import { PasswordComponent } from './shared/components/Password/password.component';
 
 const homeRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -15,6 +16,7 @@ const homeRoutes: Routes = [
 const atmRoutes: Routes = [
   { path: 'operations', component: OperationsComponent },
   { path: 'withdraw', component: WithdrawComponent },
+  { path: 'password', component: PasswordComponent },
 ]
 
 const routes: Routes = [

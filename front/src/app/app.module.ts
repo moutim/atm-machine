@@ -9,6 +9,7 @@ import { RegisterModule } from './modules/Register/register.module';
 import { DepositModule } from './modules/Deposit/deposit.module';
 import { OperationsModule } from './modules/Operations/operations.module';
 import { WithdrawModule } from './modules/Withdraw/withdraw.module';
+import { PasswordModule } from './shared/components/Password/password.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { WithdrawModule } from './modules/Withdraw/withdraw.module';
     RegisterModule,
     DepositModule,
     OperationsModule,
-    WithdrawModule
+    WithdrawModule,
+    PasswordModule
   ],
   providers: [],
   bootstrap: [AppComponent]

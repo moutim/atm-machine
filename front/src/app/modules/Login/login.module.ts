@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CpfDirective } from '../../directives/CPF/cpf.directive';
+import { SharedModule } from '../../shared/modules/shared.module';
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    CpfDirective
+    LoginComponent
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class LoginModule { }

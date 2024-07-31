@@ -1,5 +1,6 @@
 // colors
 $primary-orange: #FF6001;
+$third-blue: #011FBC;
 
 // box-shadows
 $box-shadow-login: 0px 4px 4px rgba(0, 0, 0, 0.5);
@@ -27,4 +28,38 @@ $box-shadow-login: 0px 4px 4px rgba(0, 0, 0, 0.5);
   font-weight: 500;
   border: none;
   border-radius: 15px;
+}
+
+@mixin input-style ($width, $height) {
+  width: $width;
+  height: $height;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 0 10px;
+
+  &:focus {
+    border-color: $primary-orange;
+    outline: none;
+    border-width: 2px;
+  }
+}
+
+@mixin button-return-style ($width, $height) {
+  cursor: pointer;
+  width: $width;
+  height: $height;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid $third-blue;
+  font-weight: 500;
+  font-size: 15px;
+  color: $third-blue;
+
+  span {
+    color: $third-blue;
+  }
 }

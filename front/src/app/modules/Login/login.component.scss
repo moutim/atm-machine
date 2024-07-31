@@ -1,11 +1,11 @@
 @import '../../../variables.scss';
 
 section {
-  padding-top: 25px;
   display: flex;
   justify-content: space-between;
 
   .article-bills {
+    width: 600px;
     .ad img {
       width: 600px;
       border-radius: 10px;
@@ -15,16 +15,27 @@ section {
       h4 {
         font-size: 25px;
         font-weight: 500;
-        margin: 20px 0;
+        margin: 25px 0;
       }
 
-      > div {
+      .container-bills {
         display: flex;
-        align-items: center;
-        gap: 20px;
-        font-size: 20px;
-        font-weight: 500;
-        margin-bottom: 15px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        > div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          font-size: 20px;
+          font-weight: 500;
+          margin-bottom: 15px;
+
+          img {
+            width: 180px;
+          }
+        }
       }
     }
   }
@@ -53,18 +64,7 @@ section {
         gap: 40px;
 
         input {
-          width: 450px;
-          height: 60px;
-          font-size: 18px;
-          border: none;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-          padding: 0 10px;
-
-          &:focus {
-            border-color: $primary-orange;
-            outline: none;
-            border-width: 2px;
-          }
+          @include input-style(450px, 60px);
         }
 
         button {

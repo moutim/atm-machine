@@ -1,0 +1,30 @@
+// colors
+$primary-orange: #FF6001;
+
+// box-shadows
+$box-shadow-login: 0px 4px 4px rgba(0, 0, 0, 0.5);
+
+// mixins
+@mixin button-active-style ($width, $height) {
+  cursor: pointer;
+  width: $width;
+  height: $height;
+  font-size: 20px;
+  background-color: $primary-orange;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 15px;
+}
+
+@mixin button-disable-style ($width, $height) {
+  cursor: pointer;
+  width: $width;
+  height: $height;
+  font-size: 20px;
+  background-color: #cfd1d3;
+  color: #999999;
+  font-weight: 500;
+  border: none;
+  border-radius: 15px;
+}

@@ -9,7 +9,8 @@ import { RegisterModule } from './modules/Register/register.module';
 import { DepositModule } from './modules/Deposit/deposit.module';
 import { OperationsModule } from './modules/Operations/operations.module';
 import { WithdrawModule } from './modules/Withdraw/withdraw.module';
-import { PasswordModule } from './shared/components/Password/password.module';
+import { PasswordModule } from './modules/Password/password.module';
+import { RemovebillsModule } from './modules/RemoveBills/removebills.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PasswordModule } from './shared/components/Password/password.module';
     DepositModule,
     OperationsModule,
     WithdrawModule,
-    PasswordModule
+    PasswordModule,
+    RemovebillsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

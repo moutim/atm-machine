@@ -8,6 +8,7 @@ import { HeaderloginModule } from './shared/components/HeaderLogin/headerlogin.m
 import { RegisterModule } from './modules/Register/register.module';
 import { DepositModule } from './modules/Deposit/deposit.module';
 import { OperationsModule } from './modules/Operations/operations.module';
+import { WithdrawModule } from './modules/Withdraw/withdraw.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { OperationsModule } from './modules/Operations/operations.module';
     HeaderloginModule,
     RegisterModule,
     DepositModule,
-    OperationsModule
+    OperationsModule,
+    WithdrawModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,27 @@
+@import '../../../../variables.scss';
+
+.button-value-withdraw {
+  width: 300px;
+  height: 110px;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: white;
+  box-shadow: $box-shadow-buttons-action;
+  align-items: flex-end;
+  font-weight: 600;
+}
+
+.highlight-blue {
+  background-color: $second-blue;
+  color: white;
+}
+
+.highlight-orange {
+  background-color: $primary-orange;
+  color: white;
+}

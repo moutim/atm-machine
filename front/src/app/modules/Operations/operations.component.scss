@@ -1,0 +1,33 @@
+.operations-atm {
+  display: flex;
+  justify-content: space-between;
+
+  .container-balance {
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+
+    img {
+      width: 500px;
+      border-radius: 10px;
+    }
+  }
+
+  .container-buttons-action {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    width: 650px;
+
+    app-button {
+      height: fit-content;
+    }
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 0;
+}

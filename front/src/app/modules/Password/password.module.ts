@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PasswordComponent } from './password.component';
-import { HeaderatmModule } from '../HeaderATM/headeratm.module';
-import { ExitbuttonModule } from '../ExitButton/exitbutton.module';
+import { HeaderatmModule } from '../../shared/components/HeaderATM/headeratm.module';
+import { ExitbuttonModule } from '../../shared/components/ExitButton/exitbutton.module';
 
 @NgModule({
   declarations: [

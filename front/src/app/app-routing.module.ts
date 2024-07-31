@@ -7,6 +7,7 @@ import { OperationsComponent } from './modules/Operations/operations.component';
 import { WithdrawComponent } from './modules/Withdraw/withdraw.component';
 import { PasswordComponent } from './modules/Password/password.component';
 import { RemovebillsComponent } from './modules/RemoveBills/removebills.component';
+import { StatementComponent } from './modules/Statement/statement.component';
 
 const homeRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,6 +20,7 @@ const atmRoutes: Routes = [
   { path: 'withdraw', component: WithdrawComponent },
   { path: 'password', component: PasswordComponent },
   { path: 'remove-bills', component: RemovebillsComponent },
+  { path: 'statement', component: StatementComponent },
 ]
 
 const routes: Routes = [

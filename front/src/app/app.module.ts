@@ -11,10 +11,11 @@ import { OperationsModule } from './modules/Operations/operations.module';
 import { WithdrawModule } from './modules/Withdraw/withdraw.module';
 import { PasswordModule } from './modules/Password/password.module';
 import { RemovebillsModule } from './modules/RemoveBills/removebills.module';
+import { StatementModule } from './modules/Statement/statement.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +27,8 @@ import { RemovebillsModule } from './modules/RemoveBills/removebills.module';
     OperationsModule,
     WithdrawModule,
     PasswordModule,
-    RemovebillsModule
+    RemovebillsModule,
+    StatementModule
   ],
   providers: [],
   bootstrap: [AppComponent]

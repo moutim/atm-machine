@@ -16,8 +16,8 @@ export class ButtonComponent {
   constructor(private router: Router) { }
 
   navigateTo() {
-    console.log('dddd');
-
-    this.router.navigate([`/atm/${this.route}`]);
+    if (this.route) {
+      this.router.navigate([`/atm/${this.route}`]);
+    }
   }
 }

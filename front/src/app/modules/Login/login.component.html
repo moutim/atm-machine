@@ -7,19 +7,21 @@
     <div class="bills">
       <h4>Notas disponíveis para saque:</h4>
 
-      <div>
-        <img src="../../assets/50-reais.png" alt="Nota de 50 reais">
-        <span>R$ 50</span>
-      </div>
+      <div class="container-bills">
+        <div>
+          <img src="../../assets/50-reais.png" alt="Nota de 50 reais">
+          <span>R$ 50</span>
+        </div>
 
-      <div>
-        <img src="../../assets/20-reais.png" alt="Nota de 20 reais">
-        <span>R$ 20</span>
-      </div>
+        <div>
+          <img src="../../assets/20-reais.png" alt="Nota de 20 reais">
+          <span>R$ 20</span>
+        </div>
 
-      <div>
-        <img src="../../assets/10-reais.png" alt="Nota de 10 reais">
-        <span>R$ 10</span>
+        <div>
+          <img src="../../assets/10-reais.png" alt="Nota de 10 reais">
+          <span>R$ 10</span>
+        </div>
       </div>
     </div>
   </article>
@@ -37,7 +39,7 @@
     </div>
 
     <div class="container-buttons-action">
-      <button>
+      <button (click)="navigateToRegister()">
         <span class="material-symbols-outlined">person_add</span>
         criar conta
       </button>

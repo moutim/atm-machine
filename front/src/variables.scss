@@ -1,15 +1,18 @@
 // colors
 $primary-orange: #FF6001;
+$third-orange: #FFCC00;
 
 $primary-blue: #010D3D;
 
+$primary-green: #0A3C01;
 $second-green: #008718;
 $third-green: #A6D02E;
 
 $third-blue: #011FBC;
 
 // box-shadows
-$box-shadow-login: 0px 4px 4px rgba(0, 0, 0, 0.5);
+$box-shadow-login: 0px 4px 4px rgba(0, 0, 0, 0.25);
+$box-shadow-buttons-action: 0px 4px 4px rgba(0, 0, 0, 0.50);
 
 // mixins
 @mixin button-active-style ($width, $height) {
@@ -58,7 +61,7 @@ $box-shadow-login: 0px 4px 4px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: white;
   border: 1px solid $third-blue;
   font-weight: 500;

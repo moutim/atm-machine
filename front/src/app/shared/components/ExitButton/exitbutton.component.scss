@@ -1,0 +1,7 @@
+@import '../../../../variables.scss';
+
+.button-exit {
+  @include button-return-style(180px, 60px);
+  font-size: 20px;
+  border-width: 2px;
+}

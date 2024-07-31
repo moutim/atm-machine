@@ -1,0 +1,20 @@
+.header-atm {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 20px;
+
+  .container-title {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    h2 {
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+}

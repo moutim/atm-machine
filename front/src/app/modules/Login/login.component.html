@@ -34,7 +34,7 @@
         <input type="text" placeholder="cpf" formControlName="CPF" appCpfFormat>
         <input type="password" placeholder="senha" formControlName="password">
 
-        <button type="submit" [disabled]="forms.invalid">acessar</button>
+        <button type="submit" [disabled]="forms.invalid" (click)="navigateToAtm()">acessar</button>
       </form>
     </div>
 

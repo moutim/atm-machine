@@ -1,0 +1,29 @@
+<app-headeratm
+  title="Olá Vitor Moutim"
+  subtitle="último acesso em 30/07 às 19:23h"
+></app-headeratm>
+
+<article class="limiter">
+  <app-warning />
+</article>
+
+<section class="limiter operations-atm">
+  <article class="container-balance">
+    <app-showbalance value="9,90"></app-showbalance>
+
+    <img src="../../assets/ad-atm.png" alt="Cartões Itaú">
+  </article>
+
+  <article class="container-buttons-action">
+    <app-button title="meu saque" subtitle="R$ 100,00" icon="vertical_align_bottom" [highlight]="true" />
+    <app-button title="saque" subtitle="mais valores" icon="vertical_align_bottom" [highlight]="true" />
+    <app-button title="extrato" subtitle="conta corrente" icon="wallet" />
+    <app-button subtitle="transferência" icon="sync_alt" />
+    <app-button subtitle="depósito" icon="vertical_align_top" />
+    <app-button subtitle="poupança" icon="savings" />
+  </article>
+</section>
+
+<footer class="limiter">
+  <app-exitbutton />
+</footer>

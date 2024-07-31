@@ -1,0 +1,16 @@
+<div
+  class="show-balance"
+  (click)="showBalance()"
+  [ngClass]="{ 'highlight': visibleBalance }"
+  role="button"
+>
+  <div class="info">
+    <p *ngIf="!visibleBalance">veja sem sair da tela</p>
+    <span *ngIf="!visibleBalance">saldo</span>
+    <span *ngIf="visibleBalance">total disponível: R$ {{ value }}</span>
+  </div>
+
+  <div>
+    <i><span class="material-symbols-outlined">wallet</span></i>
+  </div>
+</div>

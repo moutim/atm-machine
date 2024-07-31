@@ -34,4 +34,8 @@ export class LoginComponent implements OnInit {
   navigateToDeposit() {
     this.router.navigate(['/home/deposit']);
   }
+
+  navigateToAtm() {
+    this.router.navigate(['/atm/operations']);
+  }
 }

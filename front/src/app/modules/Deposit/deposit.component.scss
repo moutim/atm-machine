@@ -1,0 +1,98 @@
+@import '../../../variables.scss';
+
+.article-deposit {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: $box-shadow-login;
+  background-color: white;
+  width: 550px;
+  margin: auto;
+  padding: 30px 40px;
+  border-radius: 10px;
+
+  .button-return {
+    @include button-return-style(150px, 45px);
+  }
+
+  .deposit-forms {
+
+    h1,
+    h2 {
+      margin: 10px 0;
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .span-error {
+        font-size: 12px;
+        color: red
+      }
+
+      input {
+        @include input-style(450px, 60px);
+      }
+
+      button {
+        @include button-active-style(450px, 55px);
+
+        &:disabled {
+          @include button-disable-style(450px, 55px);
+        }
+      }
+    }
+
+    .deposit-confirm {
+      .info-list {
+        margin: 20px 0;
+        list-style: none;
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        span {
+          font-weight: 500;
+        }
+      }
+
+      .buttons-deposit {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+
+        button {
+          @include button-active-style(220px, 55px);
+        }
+
+        .cancel {
+          background-color: white;
+          color: $primary-blue;
+          border: 2px solid $primary-blue;
+        }
+
+        .confirm {
+          background-color: $second-green;
+        }
+      }
+    }
+
+    .deposit-made {
+      text-align: center;
+      span {
+        color: $third-green;
+        font-size: 100px;
+      }
+
+      p {
+        font-size: 20px;
+        font-weight: 500;
+      }
+    }
+  }
+}

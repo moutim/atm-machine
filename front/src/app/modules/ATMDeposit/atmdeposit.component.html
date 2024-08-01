@@ -1,0 +1,29 @@
+<app-headeratm title="Depósito em conta corrente" />
+
+<section class="limiter section-atm-deposit">
+  <article class="article-deposit">
+    <div class="deposit-forms">
+      <div *ngIf="!depositMade">
+        <h2>depósito</h2>
+
+        <form [formGroup]="forms" (ngSubmit)="onSubmit()">
+          <input type="number" placeholder="valor" formControlName="value">
+
+
+          <button type="submit" [disabled]="forms.invalid">depositar</button>
+        </form>
+      </div>
+
+      <div class="deposit-made" *ngIf="depositMade">
+        <span class="material-symbols-outlined">
+          task_alt
+        </span>
+        <p>depósito realizado com sucesso!</p>
+      </div>
+    </div>
+  </article>
+
+  <app-showbalance />
+</section>
+
+<app-footer />

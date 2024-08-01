@@ -1,0 +1,10 @@
+<div role="button" class="button-atm-action" [ngClass]="{ 'highlight': highlight }" (click)="navigateTo()">
+  <div class="text">
+    <p>{{ title }}</p>
+    <span>{{ subtitle }}</span>
+  </div>
+
+  <div>
+    <i><span class="material-symbols-outlined">{{ icon }}</span></i>
+  </div>
+</div>

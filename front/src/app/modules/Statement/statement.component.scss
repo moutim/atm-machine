@@ -1,0 +1,49 @@
+@import '../../../variables.scss';
+
+.section-statement {
+  display: flex;
+
+  justify-content: space-between;
+  >article {
+    width: fit-content;
+    background-color: white;
+    padding: 30px 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: $box-shadow-login;
+
+    h3 {
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    table {
+      width: 100%;
+
+      thead {
+        th {
+          padding: 20px 40px 20px 0;
+          text-align: left;
+        }
+      }
+
+      tbody {
+
+        td {
+          padding: 5px 40px 5px 0;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+
+  >div {
+    display: flex;
+    gap: 25px;
+  }
+}

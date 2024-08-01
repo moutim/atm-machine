@@ -1,0 +1,39 @@
+<article class="article-register">
+  <button class="button-return" (click)="navigateToLogin()">
+    voltar
+    <i><span class="material-symbols-outlined">arrow_back</span></i>
+  </button>
+
+  <div class="register-forms">
+    <h1>crie sua conta</h1>
+
+    <form [formGroup]="forms" (ngSubmit)="onSubmit()">
+      <input type="text" placeholder="nome" formControlName="firstName">
+      <span *ngIf="forms.get('firstName')?.invalid && forms.get('firstName')?.touched" class="span-error">
+        O primeiro nome deve ter no mínimo 3 caracteres
+      </span>
+
+      <input type="text" placeholder="sobrenome" formControlName="lastName">
+      <span *ngIf="forms.get('lastName')?.invalid && forms.get('lastName')?.touched" class="span-error">
+        O último nome deve ter no mínimo 3 caracteres
+      </span>
+
+      <input type="text" placeholder="cpf" formControlName="CPF" appCpfFormat>
+      <span *ngIf="forms.get('CPF')?.invalid && forms.get('CPF')?.touched" class="span-error">
+        O CPF deve ter 11 dígitos
+      </span>
+
+      <input type="password" placeholder="senha" formControlName="password">
+      <span *ngIf="forms.get('password')?.invalid && forms.get('password')?.touched" class="span-error">
+        A senha deve ter no mínimo 5 caracteres
+      </span>
+
+      <input type="password" placeholder="confirme a senha" formControlName="passwordConfirm">
+      <span *ngIf="forms.hasError('passwordMismatch') && forms.get('passwordConfirm')?.touched" class="span-error">
+        As senhas não conferem
+      </span>
+
+      <button type="submit" [disabled]="forms.invalid">cadastrar</button>
+    </form>
+  </div>
+</article>

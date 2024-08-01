@@ -1,0 +1,56 @@
+@import '../../../variables.scss';
+
+.section-value-balance {
+  display: flex;
+  justify-content: space-between;
+
+  .article-value {
+    width: 500px;
+    background-color: white;
+    padding: 0px 60px;
+    gap: 30px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: $box-shadow-buttons-action;
+    margin-bottom: 30px;
+
+    label, p {
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+
+      input {
+        margin-left: 20px;
+        @include input-style(200px, 35px);
+      }
+    }
+
+    span {
+      font-weight: 500;
+    }
+  }
+
+  .article-buttons {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+
+  >div {
+    display: flex;
+    gap: 25px;
+  }
+}
+
+

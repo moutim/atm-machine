@@ -1,0 +1,36 @@
+<app-headeratm title="Saque de conta corrente" />
+
+<article class="limiter">
+  <app-warning />
+</article>
+
+<section class="limiter section-value-balance">
+  <article>
+    <div class="article-value">
+      <label for="value">
+        valor:
+        <input type="number" id="value" placeholder="insira o valor">
+      </label>
+
+      <p>máximo por saque: <span>R$ 1.000,00</span></p>
+
+      <p>notas disponíveis: <span>R$ 50, R$ 20, R$ 10</span></p>
+    </div>
+
+    <app-showbalance />
+  </article>
+
+  <article class="article-buttons">
+    <app-button title="R$ 20,00" />
+    <app-button title="R$ 50,00" />
+    <app-button title="R$ 100,00" />
+    <app-button title="R$ 160,00" />
+    <app-button title="R$ 220,00" />
+    <app-button title="R$ 540,00" />
+    <app-button title="resgate da poupança" class="savings" [highlightBlue]="true" route="savings" />
+    <app-button title="continuar para o saque" [highlightOrange]="true" route="password" />
+  </article>
+</section>
+
+<app-footer />
+

@@ -1,0 +1,49 @@
+@import '../../../../variables.scss';
+
+.show-balance {
+  width: 500px;
+  height: 110px;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: white;
+  box-shadow: $box-shadow-buttons-action;
+
+  .info {
+    font-size: 20px;
+    align-self: flex-end;
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  i span {
+    font-size: 35px;
+    color: $primary-orange;
+  }
+}
+
+.highlight {
+  background-color: $primary-orange;
+
+  .info {
+    align-self: flex-end;
+  }
+
+  span {
+    color: white;
+    justify-self: flex-end;
+  }
+
+  i span {
+    color: white;
+  }
+}

@@ -1,0 +1,47 @@
+@import '../../../variables.scss';
+
+.article-register {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: $box-shadow-login;
+  background-color: white;
+  width: fit-content;
+  margin: auto;
+  padding: 30px 40px;
+  border-radius: 10px;
+
+  .button-return {
+    @include button-return-style(150px, 45px);
+  }
+
+  .register-forms {
+    h1 {
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .span-error {
+        font-size: 12px;
+        color: red
+      }
+
+      input {
+        @include input-style(450px, 60px);
+      }
+
+      button {
+        @include button-active-style(450px, 55px);
+
+        &:disabled {
+          @include button-disable-style(450px, 55px);
+        }
+      }
+    }
+  }
+}

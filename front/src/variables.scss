@@ -1,0 +1,74 @@
+// colors
+$primary-orange: #FF6001;
+$third-orange: #FFCC00;
+
+$primary-blue: #010D3D;
+$second-blue: #0e3399;
+$third-blue: #011FBC;
+
+$primary-green: #0A3C01;
+$second-green: #008718;
+$third-green: #A6D02E;
+
+// box-shadows
+$box-shadow-login: 0px 4px 4px rgba(0, 0, 0, 0.25);
+$box-shadow-buttons-action: 0px 4px 4px rgba(0, 0, 0, 0.50);
+
+// mixins
+@mixin button-active-style ($width, $height) {
+  cursor: pointer;
+  width: $width;
+  height: $height;
+  font-size: 20px;
+  background-color: $primary-orange;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 15px;
+}
+
+@mixin button-disable-style ($width, $height) {
+  cursor: pointer;
+  width: $width;
+  height: $height;
+  font-size: 20px;
+  background-color: #cfd1d3;
+  color: #999999;
+  font-weight: 500;
+  border: none;
+  border-radius: 15px;
+}
+
+@mixin input-style ($width, $height) {
+  width: $width;
+  height: $height;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 0 10px;
+
+  &:focus {
+    border-color: $primary-orange;
+    outline: none;
+    border-width: 2px;
+  }
+}
+
+@mixin button-return-style ($width, $height) {
+  cursor: pointer;
+  width: $width;
+  height: $height;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 15px;
+  background-color: white;
+  border: 1px solid $third-blue;
+  font-weight: 500;
+  font-size: 15px;
+  color: $third-blue;
+
+  span {
+    color: $third-blue;
+  }
+}

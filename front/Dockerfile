@@ -1,15 +1,21 @@
-FROM node:16-alpine
+# Fase de build
+FROM node:18.19 as build
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install -g @angular/cli
-
 RUN npm install
 
 COPY . .
 
-EXPOSE 4200
+RUN npm run build
 
-CMD ["ng", "serve"]
+# Fase de produção
+FROM nginx:alpine
+
+COPY --from=build /app/dist/atm/browser /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

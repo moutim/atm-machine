@@ -8,3 +8,11 @@ services:
     ports:
       - "8000:80"
     container_name: angular-app-container
+
+  test-front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile.test
+    command: npm test
+    volumes:
+      - ./front:/app

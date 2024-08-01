@@ -1,7 +1,7 @@
 on: [push]
 
 jobs:
-  tests-front:
+  tests:
     runs-on: ubuntu-latest
     steps:
       - name: Verifica o repositório do Git
@@ -10,8 +10,8 @@ jobs:
       - name: Inicia containers
         run: docker-compose up -d
 
-      - name: Executa todos os testes dentro do container
-        run: docker-compose exec -T app npm test
+      - name: Executa todos os testes dentro do container de teste
+        run: docker-compose run --rm test-front
 
       - name: Para os containers
         run: docker-compose down

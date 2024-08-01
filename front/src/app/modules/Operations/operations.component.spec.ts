@@ -5,6 +5,8 @@ import { OperationsComponent } from './operations.component';
 import { HeaderatmComponent } from '../../shared/components/HeaderATM/headeratm.component';
 import { ShowbalanceComponent } from '../../shared/components/ShowBalance/showbalance.component';
 import { ButtonComponent } from './Button/button.component';
+import { WarningModule } from '../../shared/components/Warning/warning.module';
+import { ExitbuttonModule } from '../../shared/components/ExitButton/exitbutton.module';
 
 describe('OperationsComponent', () => {
   let component: OperationsComponent;
@@ -17,6 +19,9 @@ describe('OperationsComponent', () => {
         HeaderatmComponent,
         ShowbalanceComponent,
         ButtonComponent
+      ],
+      imports: [
+        WarningModule,
       ]
     })
     .compileComponents();

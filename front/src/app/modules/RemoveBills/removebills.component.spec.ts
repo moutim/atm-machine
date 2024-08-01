@@ -1,18 +1,26 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RemovenotesComponent } from './removebills.component';
+import { RemovebillsComponent } from './removebills.component';
+import { HeaderatmModule } from '../../shared/components/HeaderATM/headeratm.module';
+import { ExitbuttonModule } from '../../shared/components/ExitButton/exitbutton.module';
+import { FooterModule } from '../../shared/components/Footer/footer.module';
 
-describe('RemovenotesComponent', () => {
-  let component: RemovenotesComponent;
-  let fixture: ComponentFixture<RemovenotesComponent>;
+describe('RemovebillsComponent', () => {
+  let component: RemovebillsComponent;
+  let fixture: ComponentFixture<RemovebillsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RemovenotesComponent]
+      declarations: [RemovebillsComponent],
+      imports: [
+        HeaderatmModule,
+        ExitbuttonModule,
+        FooterModule
+      ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RemovenotesComponent);
+    fixture = TestBed.createComponent(RemovebillsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

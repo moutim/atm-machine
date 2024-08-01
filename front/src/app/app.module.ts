@@ -12,6 +12,9 @@ import { WithdrawModule } from './modules/Withdraw/withdraw.module';
 import { PasswordModule } from './modules/Password/password.module';
 import { RemovebillsModule } from './modules/RemoveBills/removebills.module';
 import { StatementModule } from './modules/Statement/statement.module';
+import { AtmdepositModule } from './modules/ATMDeposit/atmdeposit.module';
+import { TransferModule } from './modules/Transfer/transfer.module';
+import { SavingsModule } from './modules/Savings/savings.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { StatementModule } from './modules/Statement/statement.module';
     WithdrawModule,
     PasswordModule,
     RemovebillsModule,
-    StatementModule
+    StatementModule,
+    AtmdepositModule,
+    TransferModule,
+    SavingsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

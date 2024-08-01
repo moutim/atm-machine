@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ShowbalanceComponent {
   @Input() value: string = '';
+  @Input() savings: boolean = false;
 
   visibleBalance: boolean = false;
 

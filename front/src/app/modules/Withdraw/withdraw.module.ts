@@ -6,6 +6,7 @@ import { WarningModule } from '../../shared/components/Warning/warning.module';
 import { ShowbalanceModule } from '../../shared/components/ShowBalance/showbalance.module';
 import { ButtonComponent } from './ButtonWithdraw/button.component';
 import { ExitbuttonModule } from '../../shared/components/ExitButton/exitbutton.module';
+import { FooterModule } from '../../shared/components/Footer/footer.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ExitbuttonModule } from '../../shared/components/ExitButton/exitbutton.
     HeaderatmModule,
     WarningModule,
     ShowbalanceModule,
-    ExitbuttonModule
+    ExitbuttonModule,
+    FooterModule
   ]
 })
 export class WithdrawModule { }

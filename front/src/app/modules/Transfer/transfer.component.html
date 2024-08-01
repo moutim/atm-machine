@@ -1,0 +1,52 @@
+<app-headeratm title="Transferência via CPF" />
+
+<section class="limiter section-transfer">
+  <article class="article-transfer">
+    <div class="transfer-forms">
+      <div *ngIf="!cpfExists && !transferMade">
+        <h1>transferência</h1>
+
+        <form [formGroup]="forms" (ngSubmit)="onSubmit()">
+          <input type="text" placeholder="cpf de destino" formControlName="CPF" appCpfFormat>
+          <span *ngIf="forms.get('CPF')?.invalid && forms.get('CPF')?.touched" class="span-error">
+            O CPF deve ter 11 dígitos
+          </span>
+
+          <input type="number" placeholder="valor" formControlName="value">
+
+
+          <button type="submit" [disabled]="forms.invalid">continuar</button>
+        </form>
+      </div>
+
+      <div class="transfer-confirm" *ngIf="cpfExists">
+        <h2>dados da transferência</h2>
+
+        <ul class="info-list">
+          <li>nome: <span>Vitor</span></li>
+          <li>sobrenome: <span>Moutim</span></li>
+          <li>cpf: <span>512.255.118-95</span></li>
+          <li>valor: <span>R$ 550</span></li>
+        </ul>
+
+        <div class="buttons-transfer">
+          <button class="confirm" (click)="confirmtransfer()">confirmar</button>
+          <button class="cancel" (click)="canceltransfer()">cancelar</button>
+        </div>
+      </div>
+
+      <div class="transfer-made" *ngIf="transferMade">
+        <span class="material-symbols-outlined">
+          task_alt
+        </span>
+        <p>transferência realizada com sucesso!</p>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <app-showbalance />
+  </article>
+</section>
+
+<app-footer />

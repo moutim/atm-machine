@@ -1,0 +1,49 @@
+<app-headeratm title="Conta poupança" />
+
+<section class="limiter section-savings">
+  <article class="article-savings">
+    <div class="savings-forms">
+      <div *ngIf="!optionSelected && !savingsMade">
+        <h1>o que deseja fazer?</h1>
+
+        <form [formGroup]="forms" (ngSubmit)="onSubmit()">
+          <select name="option" formControlName="option">
+            <option value="guardar">guardar</option>
+            <option value="retirar">retirar</option>
+          </select>
+
+          <input type="number" placeholder="valor" formControlName="value">
+
+          <button type="submit" [disabled]="forms.invalid">continuar</button>
+        </form>
+      </div>
+
+      <div class="savings-confirm" *ngIf="optionSelected && !savingsMade">
+        <h2>dados da operação</h2>
+
+        <ul class="info-list">
+          <li>opção: <span>guardar</span></li>
+          <li>valor: <span>R$ 550</span></li>
+        </ul>
+
+        <div class="buttons-savings">
+          <button class="confirm" (click)="confirmSavings()">confirmar</button>
+          <button class="cancel" (click)="cancelSavings()">cancelar</button>
+        </div>
+      </div>
+
+      <div class="savings-made" *ngIf="savingsMade">
+        <span class="material-symbols-outlined">
+          task_alt
+        </span>
+        <p>operação realizada com sucesso!</p>
+      </div>
+    </div>
+  </article>
+
+  <article>
+    <app-showbalance [savings]="true"/>
+  </article>
+</section>
+
+<app-footer />

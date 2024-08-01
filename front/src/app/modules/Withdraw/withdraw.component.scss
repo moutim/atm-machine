@@ -24,11 +24,8 @@
       align-items: center;
 
       input {
-        border: 2px solid $primary-orange;
-        border-radius: 10px;
-        padding: 10px;
-        margin-left: 10px;
-        font-size: 16px;
+        margin-left: 20px;
+        @include input-style(200px, 35px);
       }
     }
 
@@ -47,7 +44,13 @@
 
 footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 20px 0;
+
+  >div {
+    display: flex;
+    gap: 25px;
+  }
 }
+
 

@@ -1,0 +1,18 @@
+@import '../../../../variables.scss';
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 0;
+
+  .button-footer-atm {
+    @include button-return-style(180px, 60px);
+    font-size: 20px;
+    border-width: 2px;
+  }
+
+  >div {
+    display: flex;
+    gap: 25px;
+  }
+}

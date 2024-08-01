@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeatmbuttonComponent } from './homeatmbutton.component';
+import { AtmdepositComponent } from './atmdeposit.component';
 
-describe('HomeatmbuttonComponent', () => {
-  let component: HomeatmbuttonComponent;
-  let fixture: ComponentFixture<HomeatmbuttonComponent>;
+describe('AtmdepositComponent', () => {
+  let component: AtmdepositComponent;
+  let fixture: ComponentFixture<AtmdepositComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomeatmbuttonComponent]
+      declarations: [AtmdepositComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HomeatmbuttonComponent);
+    fixture = TestBed.createComponent(AtmdepositComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

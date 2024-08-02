@@ -6,7 +6,8 @@ namespace atm.Database.Entities
     public class UserStatement
     {
         [Key, Column(Order = 0)]
-        public int StatementId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int? StatementId { get; set; }
 
         [ForeignKey("StatementId")]
         public Statement Statement { get; set; }

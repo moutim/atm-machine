@@ -12,7 +12,7 @@ using atm.Database;
 namespace atm.Database.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240802025656_Initial")]
+    [Migration("20240802055056_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -28,7 +28,10 @@ namespace atm.Database.Migrations
             modelBuilder.Entity("atm.Database.Entities.CurrentAccount", b =>
                 {
                     b.Property<int>("AccountId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("AccountId"));
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -45,30 +48,33 @@ namespace atm.Database.Migrations
 
             modelBuilder.Entity("atm.Database.Entities.SavingAccount", b =>
                 {
-                    b.Property<int>("AccountId")
+                    b.Property<int?>("AccountId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("UserUserId")
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int?>("AccountId"));
+
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.Property<int>("Balance")
                         .HasColumnType("int");
 
-                    b.HasKey("AccountId", "UserUserId");
+                    b.HasKey("AccountId", "UserId");
 
-                    b.HasIndex("UserUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("SavingAccounts");
                 });
 
             modelBuilder.Entity("atm.Database.Entities.Statement", b =>
                 {
-                    b.Property<int>("StatementId")
+                    b.Property<int?>("StatementId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnOrder(0);
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("StatementId"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int?>("StatementId"));
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime(6)");
@@ -89,11 +95,11 @@ namespace atm.Database.Migrations
 
             modelBuilder.Entity("atm.Database.Entities.TransactionType", b =>
                 {
-                    b.Property<int>("TransactionId")
+                    b.Property<int?>("TransactionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("TransactionId"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int?>("TransactionId"));
 
                     b.Property<string>("Type")
                         .IsRequired()
@@ -106,11 +112,11 @@ namespace atm.Database.Migrations
 
             modelBuilder.Entity("atm.Database.Entities.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("UserId"));
 
                     b.Property<long>("CPF")
                         .HasColumnType("bigint");
@@ -127,14 +133,15 @@ namespace atm.Database.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
                 });
 
             modelBuilder.Entity("atm.Database.Entities.UserStatement", b =>
                 {
-                    b.Property<int>("StatementId")
+                    b.Property<int?>("StatementId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnOrder(0);
 
@@ -164,7 +171,7 @@ namespace atm.Database.Migrations
                 {
                     b.HasOne("atm.Database.Entities.User", "User")
                         .WithMany("SavingAccounts")
-                        .HasForeignKey("UserUserId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

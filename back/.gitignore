@@ -1,0 +1,68 @@
+# .NET Core
+## Build Folders
+bin/
+obj/
+out/
+publish/
+
+## ASP.NET Core
+wwwroot/
+*.vs/
+*.vscode/
+
+## User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Environment-specific files
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
+
+# Log files
+*.log
+
+# Npm package lock files
+package-lock.json
+yarn.lock
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# JetBrains Rider
+.idea/
+
+# User-specific files
+*.swp
+*.swo
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+
+# Local History for Visual Studio
+.history/
+
+# Files created by Visual Studio for debugging
+.vscode/
+
+# Mac-specific files
+*.DS_Store
+
+# Node.js
+node_modules/
+
+# JetBrains Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Backup files
+*~
+*.bak
+*.tmp
+*.swp

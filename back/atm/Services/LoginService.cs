@@ -39,7 +39,8 @@ namespace atm.Services
             LoginResultDTO loginResult = new LoginResultDTO()
             {
                 Token = _tokenJWT.CreateAuthenticationToken(user),
-                UserId = user.UserId
+                UserId = user.UserId,
+                CPF = user.CPF
         };
 
             return loginResult;

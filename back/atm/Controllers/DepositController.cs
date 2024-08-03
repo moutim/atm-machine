@@ -1,6 +1,7 @@
 ﻿using atm.DTOs.Requests;
 using atm.DTOs.Response;
 using atm.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +18,7 @@ namespace atm.Controllers
             _depositService = depositService;
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Deposit([FromBody] DepositDTO depositTransfer)
         {

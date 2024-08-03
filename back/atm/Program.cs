@@ -51,6 +51,7 @@ builder.Services.AddScoped<TokenJWTService>();
 builder.Services.AddScoped<LoginService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<WithdrawService>();
+builder.Services.AddScoped<CheckCPFService>();
 
 // Configuração JWT
 var key = Encoding.ASCII.GetBytes(builder.Configuration["JwtSettings:Key"]);

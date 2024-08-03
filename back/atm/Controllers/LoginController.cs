@@ -20,7 +20,7 @@ namespace atm.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginDTO loginInfo)
         {
-            var loginResult = await _loginService.LoginAndToken(loginInfo);
+            LoginResultDTO? loginResult = await _loginService.LoginAndToken(loginInfo);
 
             if (loginResult == null)
             {
@@ -32,9 +32,7 @@ namespace atm.Controllers
                 return Unauthorized(message);
             }
 
-            TokenJWTDTO token = new TokenJWTDTO() { Token = loginResult };
-
-            return Ok(token);
+            return Ok(loginResult);
         }
     }
 }

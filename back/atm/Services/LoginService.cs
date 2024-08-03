@@ -3,6 +3,7 @@ using atm.Database;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using atm.DTOs.Requests;
+using atm.DTOs.Response;
 
 namespace atm.Services
 {
@@ -19,7 +20,7 @@ namespace atm.Services
             _tokenJWT = tokenJWT;
         }
 
-        public async Task<string?> LoginAndToken(LoginDTO loginInfo)
+        public async Task<LoginResultDTO?> LoginAndToken(LoginDTO loginInfo)
         {
             User? user = await _context.Users.FirstOrDefaultAsync(u => u.CPF == loginInfo.CPF);
             if (user == null)
@@ -35,7 +36,13 @@ namespace atm.Services
 
             await UpdateLastAccess(user);
 
-            return _tokenJWT.CreateAuthenticationToken(user);
+            LoginResultDTO loginResult = new LoginResultDTO()
+            {
+                Token = _tokenJWT.CreateAuthenticationToken(user),
+                UserId = user.UserId
+        };
+
+            return loginResult;
         }
 
         private async Task UpdateLastAccess(User user)

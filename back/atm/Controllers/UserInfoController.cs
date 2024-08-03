@@ -8,17 +8,17 @@ namespace atm.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserInfoController : ControllerBase
     {
         private readonly UserService _userService;
 
-        public UserController(UserService userService)
+        public UserInfoController(UserService userService)
         {
             _userService = userService;
         }
 
         [Authorize]
-        [HttpGet("UserInfo/{id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetUserInfo(int id)
         {
             var resultService = await _userService.GetUserInfo(id);

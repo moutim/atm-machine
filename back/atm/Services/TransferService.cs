@@ -22,7 +22,7 @@ namespace atm.Services
         {
             User? userOrigin = await _context.Users
                 .Include(u => u.CurrentAccounts)
-                .FirstOrDefaultAsync(u => u.CPF == transferInfo.CpfOrigin);
+                .FirstOrDefaultAsync(u => u.CPF == transferInfo.CPFOrigin);
             int userOriginCurrentBalance = userOrigin.CurrentAccounts.Sum(ca => ca.Balance);
 
             if (userOriginCurrentBalance < transferInfo.Amount)
@@ -32,7 +32,7 @@ namespace atm.Services
 
             User? userDestination = await _context.Users
                 .Include(u => u.CurrentAccounts)
-                .FirstOrDefaultAsync(u => u.CPF == transferInfo.CpfDestination);
+                .FirstOrDefaultAsync(u => u.CPF == transferInfo.CPFDestination);
 
             // Atualiza o saldo da conta de origem
             CurrentAccount? originAccount = userOrigin.CurrentAccounts.FirstOrDefault();

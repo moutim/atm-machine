@@ -2,8 +2,8 @@
 {
     public class TransferDTO
     {
-        public long CpfOrigin { get; set; }
-        public long CpfDestination { get; set; }
+        public long CPFOrigin { get; set; }
+        public long CPFDestination { get; set; }
         public int Amount { get; set; }
     }
 }

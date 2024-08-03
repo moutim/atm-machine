@@ -1,7 +1,8 @@
 ﻿namespace atm.DTOs.Response
 {
-    public class TokenJWTDTO
+    public class LoginResultDTO
     {
         public string Token { get; set; } = string.Empty;
+        public int UserId { get; set; }
     }
 }

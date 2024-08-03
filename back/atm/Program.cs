@@ -50,6 +50,7 @@ builder.Services.AddScoped<StatementService>();
 builder.Services.AddScoped<TokenJWTService>();
 builder.Services.AddScoped<LoginService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<WithdrawService>();
 
 // Configuração JWT
 var key = Encoding.ASCII.GetBytes(builder.Configuration["JwtSettings:Key"]);

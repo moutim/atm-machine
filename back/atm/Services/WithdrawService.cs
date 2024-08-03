@@ -32,7 +32,7 @@ namespace atm.Services
             _context.CurrentAccounts.Update(currentAccount);
 
             await _statementService.CreateStatement
-                ((int)TransactionTypes.Deposit, withdrawInfo.Amount, withdrawInfo.UserId);
+                ((int)TransactionTypes.Deposit, withdrawInfo.Amount, withdrawInfo.UserId, 0);
 
             return true;
         }

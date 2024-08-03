@@ -1,5 +1,6 @@
 ﻿using atm.DTOs.Response;
 using atm.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace atm.Controllers
@@ -15,6 +16,7 @@ namespace atm.Controllers
             _statementService = statementService;
         }
 
+        [Authorize]
         [HttpGet("{userId}")]
         public async Task<IActionResult> GetStatement(int userId)
         {

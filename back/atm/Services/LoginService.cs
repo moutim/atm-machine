@@ -33,7 +33,19 @@ namespace atm.Services
                 return null;
             }
 
+            await UpdateLastAccess(user);
+
             return _tokenJWT.CreateAuthenticationToken(user);
+        }
+
+        private async Task UpdateLastAccess(User user)
+        {
+            // Pega o fuso horário de Brasília
+            TimeZoneInfo brasiliaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
+            DateTime nowInBrasilia = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, brasiliaTimeZone);
+
+            user.LastAccess = nowInBrasilia;
+            await _context.SaveChangesAsync();
         }
     }
 }

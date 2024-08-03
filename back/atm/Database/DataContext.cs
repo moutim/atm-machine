@@ -22,7 +22,7 @@ namespace atm.Database
                 .HasKey(ca => new { ca.AccountId, ca.UserId });
 
             modelBuilder.Entity<SavingAccount>()
-                .HasKey(sa => new { sa.AccountId, sa.UserUserId });
+                .HasKey(sa => new { sa.AccountId, sa.UserId });
 
             modelBuilder.Entity<Statement>()
                 .HasKey(s => s.StatementId);

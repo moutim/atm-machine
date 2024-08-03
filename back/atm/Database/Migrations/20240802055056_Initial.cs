@@ -34,7 +34,7 @@ namespace atm.Database.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     CPF = table.Column<long>(type: "bigint", nullable: false),
                     FirstName = table.Column<string>(type: "longtext", nullable: false)
@@ -46,7 +46,7 @@ namespace atm.Database.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_Users", x => x.UserId);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -76,7 +76,8 @@ namespace atm.Database.Migrations
                 name: "CurrentAccounts",
                 columns: table => new
                 {
-                    AccountId = table.Column<int>(type: "int", nullable: false),
+                    AccountId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     Balance = table.Column<int>(type: "int", nullable: false)
                 },
@@ -87,7 +88,7 @@ namespace atm.Database.Migrations
                         name: "FK_CurrentAccounts_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
@@ -96,18 +97,19 @@ namespace atm.Database.Migrations
                 name: "SavingAccounts",
                 columns: table => new
                 {
-                    AccountId = table.Column<int>(type: "int", nullable: false),
-                    UserUserId = table.Column<int>(type: "int", nullable: false),
+                    AccountId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     Balance = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SavingAccounts", x => new { x.AccountId, x.UserUserId });
+                    table.PrimaryKey("PK_SavingAccounts", x => new { x.AccountId, x.UserId });
                     table.ForeignKey(
-                        name: "FK_SavingAccounts_Users_UserUserId",
-                        column: x => x.UserUserId,
+                        name: "FK_SavingAccounts_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
@@ -132,7 +134,7 @@ namespace atm.Database.Migrations
                         name: "FK_UserStatements_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
@@ -143,9 +145,9 @@ namespace atm.Database.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SavingAccounts_UserUserId",
+                name: "IX_SavingAccounts_UserId",
                 table: "SavingAccounts",
-                column: "UserUserId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Statements_TransactionId",

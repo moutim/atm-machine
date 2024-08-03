@@ -6,6 +6,7 @@ namespace atm.Database.Entities
     public class CurrentAccount
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AccountId { get; set; }
 
         [ForeignKey("User")]

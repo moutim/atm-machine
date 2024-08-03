@@ -7,5 +7,6 @@
         public DateTime Date { get; set; }
         public decimal Value { get; set; }
         public string Type { get; set; }
+        public int AddOrRemoved {  get; set; }
     }
 }

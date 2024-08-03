@@ -35,14 +35,15 @@ namespace atm.Services
                     UserId = userId,
                     Date = s.Date,
                     Value = s.Value,
-                    Type = s.TransactionType.Type
+                    Type = s.TransactionType.Type,
+                    AddOrRemoved = s.AddOrRemoved,
                 })
                 .ToListAsync();
 
             return statements;
         }
 
-        public async Task CreateStatement(int transactionId, int value, int userId)
+        public async Task CreateStatement(int transactionId, int value, int userId, int addOrRemoved)
         {
             // Pega o fuso horário de Brasília
             TimeZoneInfo brasiliaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
@@ -53,6 +54,7 @@ namespace atm.Services
                 TransactionId = transactionId,
                 Value = value,
                 Date = nowInBrasilia,
+                AddOrRemoved = addOrRemoved
             };
             _context.Statements.Add(statement);
             await _context.SaveChangesAsync();

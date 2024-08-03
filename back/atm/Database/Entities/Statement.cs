@@ -16,6 +16,7 @@ namespace atm.Database.Entities
         public TransactionType TransactionType { get; set; }
         public DateTime Date { get; set; }
         public int Value { get; set; }
+        public int AddOrRemoved { get; set; }
         public ICollection<UserStatement> UserStatements { get; set; }
     }
 }

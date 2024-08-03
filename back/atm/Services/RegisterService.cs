@@ -55,7 +55,7 @@ namespace atm.Services
             _context.CurrentAccounts.Add(currentAccount);
             await _context.SaveChangesAsync();
 
-            await _statementService.CreateStatement(1, 1000, userId);
+            await _statementService.CreateStatement(1, 1000, userId, 1);
         }
 
         private async Task CreateSavingAccount(int userId)
@@ -69,7 +69,7 @@ namespace atm.Services
             _context.SavingAccounts.Add(savingAccount);
             await _context.SaveChangesAsync();
 
-            await _statementService.CreateStatement(5, 1000, userId);
+            await _statementService.CreateStatement(5, 1000, userId, 1);
         }
     }
 }

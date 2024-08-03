@@ -18,8 +18,8 @@ namespace atm.Database.Seeders
             // Adiciona dados iniciais para Users
             var users = new User[]
             {
-                new User { UserId = 1, CPF = 57899251893, FirstName = "Camile", LastName = "Moutim", Password = "AQAAAAIAAYagAAAAEGE+ZJZVfLP54ERjh6G2aDEBl0Wlx+Ec2/ZRfvuJIZ4S/+Im8ZbFmQdib4kR6LyyZA==" },
-                new User { UserId = 2, CPF = 51225511895, FirstName = "Vitor", LastName = "Moutim", Password = "AQAAAAIAAYagAAAAEGE+ZJZVfLP54ERjh6G2aDEBl0Wlx+Ec2/ZRfvuJIZ4S/+Im8ZbFmQdib4kR6LyyZA==" }
+                new User { UserId = 1, CPF = 57899251893, FirstName = "Camile", LastName = "Moutim", Password = "AQAAAAIAAYagAAAAEMzviBOqBonyENF2IV2RI45epEe3rkHWT0lq5ujT0uXA0CWWhXcR8WePx5ym4yDXVA==" },
+                new User { UserId = 2, CPF = 51225511895, FirstName = "Vitor", LastName = "Moutim", Password = "AQAAAAIAAYagAAAAEMzviBOqBonyENF2IV2RI45epEe3rkHWT0lq5ujT0uXA0CWWhXcR8WePx5ym4yDXVA==" }
             };
             foreach (var user in users)
             {
@@ -65,8 +65,10 @@ namespace atm.Database.Seeders
             // Adiciona dados iniciais para Statements
             var statements = new Statement[]
             {
-                new Statement { TransactionId = 1, Date = DateTime.Now, Value = 500 },
-                new Statement { TransactionId = 2, Date = DateTime.Now, Value = 200 }
+                new Statement { TransactionId = 1, Date = DateTime.Now, Value = 1000, AddOrRemoved = 1 },
+                new Statement { TransactionId = 2, Date = DateTime.Now, Value = 1500, AddOrRemoved = 1 },
+                new Statement { TransactionId = 3, Date = DateTime.Now, Value = 5000, AddOrRemoved = 5 },
+                new Statement { TransactionId = 4, Date = DateTime.Now, Value = 7000, AddOrRemoved = 5 }
             };
             foreach (var statement in statements)
             {
@@ -77,7 +79,9 @@ namespace atm.Database.Seeders
             var userStatements = new UserStatement[]
             {
                 new UserStatement { StatementId = 1, UserId = 1 },
-                new UserStatement { StatementId = 2, UserId = 2 }
+                new UserStatement { StatementId = 3, UserId = 1 },
+                new UserStatement { StatementId = 2, UserId = 2 },
+                new UserStatement { StatementId = 4, UserId = 2 }
             };
             foreach (var userStatement in userStatements)
             {

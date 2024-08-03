@@ -53,6 +53,7 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<WithdrawService>();
 builder.Services.AddScoped<CheckCPFService>();
 builder.Services.AddScoped<TransferService>();
+builder.Services.AddScoped<DepositService>();
 
 // Configuração JWT
 var key = Encoding.ASCII.GetBytes(builder.Configuration["JwtSettings:Key"]);

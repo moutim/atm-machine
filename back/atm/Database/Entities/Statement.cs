@@ -7,7 +7,7 @@ namespace atm.Database.Entities
     {
         [Key, Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int? StatementId { get; set; }
+        public int StatementId { get; set; }
 
         [Key, Column(Order = 1)]
         public int TransactionId { get; set; }

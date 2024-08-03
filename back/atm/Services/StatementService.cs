@@ -1,6 +1,6 @@
 ﻿using atm.Database;
 using atm.Database.Entities;
-using Microsoft.AspNetCore.Identity;
+using atm.DTOs.Response;
 using Microsoft.EntityFrameworkCore;
 
 namespace atm.Services
@@ -12,6 +12,34 @@ namespace atm.Services
         public StatementService(DataContext context)
         {
             _context = context;
+        }
+
+        public async Task<List<StatementDTO>?> GetStatement(int userId)
+        {
+            var userStatements = await _context.UserStatements
+                .Where(us => us.UserId == userId)
+                .Select(us => us.StatementId)
+                .ToListAsync();
+
+            if (userStatements.Count == 0)
+            {
+                return null;
+            }
+
+            var statements = await _context.Statements
+                .Where(s => userStatements.Contains(s.StatementId))
+                .Include(s => s.TransactionType)
+                .Select(s => new StatementDTO
+                {
+                    StatementId = s.StatementId,
+                    UserId = userId,
+                    Date = s.Date,
+                    Value = s.Value,
+                    Type = s.TransactionType.Type
+                })
+                .ToListAsync();
+
+            return statements;
         }
 
         public async Task CreateStatement(int transactionId, int value, int userId)

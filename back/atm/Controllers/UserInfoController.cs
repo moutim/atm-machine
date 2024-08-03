@@ -18,16 +18,16 @@ namespace atm.Controllers
         }
 
         [Authorize]
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetUserInfo(int id)
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetUserInfo(int userId)
         {
-            var resultService = await _userService.GetUserInfo(id);
+            var resultService = await _userService.GetUserInfo(userId);
 
             if (resultService == null)
             {
                 MessageDTO message = new MessageDTO()
                 {
-                    Message = $"Usuário com o id {id} não encontrado"
+                    Message = $"Usuário com o id {userId} não encontrado"
                 };
                 return NotFound(message);
             }

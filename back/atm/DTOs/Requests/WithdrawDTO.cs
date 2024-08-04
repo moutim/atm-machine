@@ -3,6 +3,6 @@
     public class WithdrawDTO
     {
         public int UserId { get; set; }
-        public int Amount { get; set; }
+        public long Amount { get; set; }
     }
 }

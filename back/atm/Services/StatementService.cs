@@ -43,7 +43,7 @@ namespace atm.Services
             return statements;
         }
 
-        public async Task CreateStatement(int transactionId, int value, int userId, int addOrRemoved)
+        public async Task CreateStatement(int transactionId, long value, int userId, int addOrRemoved)
         {
             // Pega o fuso horário de Brasília
             TimeZoneInfo brasiliaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");

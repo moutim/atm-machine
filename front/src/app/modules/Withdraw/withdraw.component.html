@@ -1,47 +1,52 @@
-<app-headeratm title="Saque de conta corrente" />
+<app-headeratm [title]="withdrawMade ? 'Retire as notas' : 'Saque de conta corrente'"></app-headeratm>
 
-<article class="limiter">
-  <app-warning text="O limite de saque é de R$ 1.000,00 das 22h às 06h e de R$ 10.000,00 das 06h01 às 21h59." />
+<article class="limiter" *ngIf="!withdrawMade">
+  <app-warning text="O limite de saque é de R$ 1.000,00 das 22h às 06h e de R$ 10.000,00 das 06h01 às 21h59."></app-warning>
 </article>
 
-<section class="limiter section-value-balance">
+<section class="limiter section-value-balance" *ngIf="!withdrawMade">
   <article>
     <div class="article-value">
-      <app-warning *ngIf="errorMessage.length" [text]="errorMessage" />
+      <app-warning *ngIf="errorMessage.length" [text]="errorMessage"></app-warning>
 
-      <p>máximo por saque: <span>R$ 1.000,00</span></p>
+      <div *ngIf="!withdrawMade" class="container-input">
+        <h2>dados do saque</h2>
+        <p>máximo por saque: <span>{{ withdrawLimit | currency:'BRL':'symbol':'1.2-2' }}</span></p>
+        <p>notas disponíveis: <span> R$ 50, R$ 20, R$ 10</span></p>
 
-      <p>notas disponíveis: <span>R$ 50, R$ 20, R$ 10</span></p>
+        <form [formGroup]="forms" (ngSubmit)="onSubmit()">
+          <label for="value">
+            valor:
+            <input type="number" id="value" placeholder="insira o valor" formControlName="amount">
+          </label>
+          <label for="password">
+            senha:
+            <input type="password" id="password" placeholder="digite a senha" formControlName="password">
+          </label>
+          <button type="submit" [disabled]="forms.invalid">sacar</button>
+        </form>
+      </div>
 
-      <form [formGroup]="forms" (ngSubmit)="onSubmit()">
-        <label for="value">
-          valor:
-          <input type="number" id="value" placeholder="insira o valor" formControlName="amount">
-        </label>
-
-        <label for="password">
-          senha:
-          <input type="password" id="password" placeholder="digite a senha" formControlName="password">
-        </label>
-
-        <button type="submit" [disabled]="forms.invalid">acessar</button>
-      </form>
+      <div class="deposit-made" *ngIf="withdrawMade">
+        <span class="material-symbols-outlined">task_alt</span>
+        <p>depósito realizado com sucesso!</p>
+      </div>
     </div>
 
-    <app-showbalance />
+    <app-showbalance></app-showbalance>
   </article>
 
   <article class="article-buttons">
-    <app-button title="R$ 20,00" [value]="20" (valueSelected)="onValueSelected($event)" />
-    <app-button title="R$ 50,00" [value]="50" (valueSelected)="onValueSelected($event)" />
-    <app-button title="R$ 100,00" [value]="100" (valueSelected)="onValueSelected($event)" />
-    <app-button title="R$ 160,00" [value]="160" (valueSelected)="onValueSelected($event)" />
-    <app-button title="R$ 220,00" [value]="220" (valueSelected)="onValueSelected($event)" />
-    <app-button title="R$ 540,00" [value]="540" (valueSelected)="onValueSelected($event)" />
-    <app-button title="resgate da poupança" class="savings" [highlightBlue]="true" route="savings" />
-    <app-button title="continuar para o saque" [highlightOrange]="true" route="password" />
+    <app-button title="R$ 20,00" [value]="20" (valueSelected)="onValueSelected($event)"></app-button>
+    <app-button title="R$ 50,00" [value]="50" (valueSelected)="onValueSelected($event)"></app-button>
+    <app-button title="R$ 100,00" [value]="100" (valueSelected)="onValueSelected($event)"></app-button>
+    <app-button title="R$ 160,00" [value]="160" (valueSelected)="onValueSelected($event)"></app-button>
+    <app-button title="R$ 220,00" [value]="220" (valueSelected)="onValueSelected($event)"></app-button>
+    <app-button title="R$ 540,00" [value]="540" (valueSelected)="onValueSelected($event)"></app-button>
+    <app-button title="resgate da poupança" class="savings" [highlightBlue]="true" route="savings"></app-button>
   </article>
 </section>
 
-<app-footer />
+<app-removebills *ngIf="withdrawMade" [bills]="bills" [amount]="forms.get('amount')?.value" />
 
+<app-footer *ngIf="!withdrawMade"></app-footer>

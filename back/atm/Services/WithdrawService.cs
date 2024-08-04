@@ -32,7 +32,7 @@ namespace atm.Services
             _context.CurrentAccounts.Update(currentAccount);
 
             await _statementService.CreateStatement
-                ((int)TransactionTypes.Deposit, withdrawInfo.Amount, withdrawInfo.UserId, (int)AddOrRemoved.Removed);
+                ((int)TransactionTypes.Withdrawal, withdrawInfo.Amount, withdrawInfo.UserId, (int)AddOrRemoved.Removed);
 
             var notes = CalculateNotes(withdrawInfo.Amount);
 

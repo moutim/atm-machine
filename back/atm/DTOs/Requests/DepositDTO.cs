@@ -3,6 +3,6 @@
     public class DepositDTO
     {
         public long CPF { get; set; }
-        public int Amount { get; set;}
+        public long Amount { get; set;}
     }
 }

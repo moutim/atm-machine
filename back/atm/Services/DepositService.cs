@@ -23,7 +23,7 @@ namespace atm.Services
                  .Include(u => u.CurrentAccounts)
                  .FirstOrDefaultAsync(u => u.CPF == depositInfo.CPF);
 
-            int userCurrentBalance = user.CurrentAccounts.Sum(ca => ca.Balance);
+            long userCurrentBalance = user.CurrentAccounts.Sum(ca => ca.Balance);
 
             CurrentAccount? currentAccount = user.CurrentAccounts.FirstOrDefault();
 

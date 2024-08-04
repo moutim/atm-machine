@@ -3,13 +3,14 @@
 .section-value-balance {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 
   .article-value {
     width: 500px;
+    gap: 10px;
     background-color: white;
-    padding: 0px 60px;
-    gap: 30px;
-    height: 400px;
+    padding: 20px 60px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,27 +19,54 @@
     box-shadow: $box-shadow-buttons-action;
     margin-bottom: 30px;
 
-    label, p {
-      font-size: 20px;
+    .container-input {
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      gap: 20px;
 
-      input {
-        margin-left: 20px;
-        @include input-style(200px, 35px);
+      label,
+      p {
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+
+        input {
+          margin-left: 20px;
+          @include input-style(200px, 35px);
+        }
+      }
+
+      span {
+        font-weight: 500;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        button {
+          @include button-active-style(200px, 55px);
+
+          &:disabled {
+            @include button-disable-style(200px, 55px);
+          }
+        }
       }
     }
 
-    button {
-      @include button-active-style(200px, 55px);
+    .withdraw-made {
+      text-align: center;
 
-      &:disabled {
-        @include button-disable-style(200px, 55px);
+      span {
+        color: $third-green;
+        font-size: 100px;
       }
-    }
 
-    span {
-      font-weight: 500;
+      p {
+        font-size: 20px;
+        font-weight: 500;
+      }
     }
   }
 
@@ -60,5 +88,3 @@ footer {
     gap: 25px;
   }
 }
-
-

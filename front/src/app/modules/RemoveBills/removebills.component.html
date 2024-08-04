@@ -1,24 +1,14 @@
-<app-headeratm title="Retire as notas" />
-
 <article class="article-remove-notes">
   <div class="text">
-    <p>para um saque no valor de R$ 250, você recebe 6 notas</p>
+    <p>para um saque no valor de R$ {{ amount }}, você recebe {{ totalBills }} notas</p>
   </div>
 
-  <div class="bills">
-    <div>
-      <span>4x</span>
-      <img src="../../../assets/vertical-50-reais.png" alt="Nota de 50 reais">
-    </div>
-
-    <div>
-      <span>2x</span>
-      <img src="../../../assets/vertical-20-reais.png" alt="Nota de 20 reais">
-    </div>
-
-    <div>
-      <span>1x</span>
-      <img src="../../../assets/vertical-10-reais.png" alt="Nota de 10 reais">
+  <div class="bills" *ngIf="arrayBills.length">
+    <div *ngFor="let item of arrayBills">
+      <span>{{ item.quantity }}x</span>
+      <img *ngIf="item.amountBill == 50" src="../../../assets/vertical-50-reais.png" alt="Nota de 50 reais">
+      <img *ngIf="item.amountBill == 20" src="../../../assets/vertical-20-reais.png" alt="Nota de 20 reais">
+      <img *ngIf="item.amountBill == 10" src="../../../assets/vertical-10-reais.png" alt="Nota de 10 reais">
     </div>
   </div>
 </article>

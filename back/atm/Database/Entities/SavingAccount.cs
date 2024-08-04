@@ -11,7 +11,7 @@ namespace atm.Database.Entities
 
         [ForeignKey("User")]
         public int UserId { get; set; }
-        public int Balance { get; set; }
+        public long Balance { get; set; }
         public User? User { get; set; }
     }
 }

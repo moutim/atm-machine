@@ -8,6 +8,7 @@ import { ButtonComponent } from './ButtonWithdraw/button.component';
 import { ExitbuttonModule } from '../../shared/components/ExitButton/exitbutton.module';
 import { FooterModule } from '../../shared/components/Footer/footer.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RemovebillsModule } from '../RemoveBills/removebills.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ExitbuttonModule,
     FooterModule,
     ReactiveFormsModule,
-    WarningModule
+    WarningModule,
+    RemovebillsModule
   ]
 })
 export class WithdrawModule { }

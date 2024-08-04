@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FooterModule } from '../../shared/components/Footer/footer.module';
 import { HeaderatmModule } from '../../shared/components/HeaderATM/headeratm.module';
 import { ShowbalanceModule } from '../../shared/components/ShowBalance/showbalance.module';
+import { WarningModule } from '../../shared/components/Warning/warning.module';
 
 
 
@@ -17,7 +18,8 @@ import { ShowbalanceModule } from '../../shared/components/ShowBalance/showbalan
     ReactiveFormsModule,
     FooterModule,
     HeaderatmModule,
-    ShowbalanceModule
+    ShowbalanceModule,
+    WarningModule
   ]
 })
 export class SavingsModule { }

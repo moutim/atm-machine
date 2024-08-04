@@ -23,7 +23,7 @@ namespace atm.Services
             User? userOrigin = await _context.Users
                 .Include(u => u.CurrentAccounts)
                 .FirstOrDefaultAsync(u => u.CPF == transferInfo.CPFOrigin);
-            int userOriginCurrentBalance = userOrigin.CurrentAccounts.Sum(ca => ca.Balance);
+            long userOriginCurrentBalance = userOrigin.CurrentAccounts.Sum(ca => ca.Balance);
 
             if (userOriginCurrentBalance < transferInfo.Amount)
             {

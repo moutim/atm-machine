@@ -3,6 +3,8 @@
 <section class="limiter section-transfer">
   <article class="article-transfer">
     <div class="transfer-forms">
+      <app-warning *ngIf="errorMessage.length" [text]="errorMessage" />
+
       <div *ngIf="!cpfExists && !transferMade">
         <h1>transferência</h1>
 
@@ -12,7 +14,7 @@
             O CPF deve ter 11 dígitos
           </span>
 
-          <input type="number" placeholder="valor" formControlName="value">
+          <input type="number" placeholder="valor" formControlName="amount">
 
 
           <button type="submit" [disabled]="forms.invalid">continuar</button>
@@ -23,15 +25,15 @@
         <h2>dados da transferência</h2>
 
         <ul class="info-list">
-          <li>nome: <span>Vitor</span></li>
-          <li>sobrenome: <span>Moutim</span></li>
-          <li>cpf: <span>512.255.118-95</span></li>
-          <li>valor: <span>R$ 550</span></li>
+          <li>nome: <span>{{ userDestinationInfo.firstName }}</span></li>
+        <li>sobrenome: <span>{{ userDestinationInfo.lastName }}</span></li>
+        <li>cpf: <span>{{ userDestinationInfo.cpf }}</span></li>
+        <li>valor: <span>{{ forms.get('amount')?.value | currency:'BRL':'symbol':'1.2-2' }}</span></li>
         </ul>
 
         <div class="buttons-transfer">
-          <button class="confirm" (click)="confirmtransfer()">confirmar</button>
-          <button class="cancel" (click)="canceltransfer()">cancelar</button>
+          <button class="confirm" (click)="confirmTransfer()">confirmar</button>
+          <button class="cancel" (click)="cancelTransfer()">cancelar</button>
         </div>
       </div>
 

@@ -15,23 +15,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>01/01/2024</td>
-            <td>10:00</td>
-            <td>Depósito</td>
-            <td>R$ 500,00</td>
-          </tr>
-          <tr>
-            <td>02/01/2024</td>
-            <td>14:30</td>
-            <td>Saque</td>
-            <td>R$ 200,00</td>
-          </tr>
-          <tr>
-            <td>03/01/2024</td>
-            <td>09:15</td>
-            <td>Transferência</td>
-            <td>R$ 150,00</td>
+          <tr *ngFor="let item of statements">
+            <td>{{ item.date | date:'dd/MM/yyyy' }}</td>
+            <td>{{ item.date | date:'HH:mm' }}</td>
+            <td>{{ item.type }}</td>
+            <td>{{ item.addOrRemoved == 0 ? '-' : '+' }} {{  item.value | currency:'BRL':'symbol':'1.2-2' }}</td>
+            <!-- <td>{{ (item.addOrRemoved == 0 ? '+' : '1') + item.value | currency:'BRL':'symbol':'1.2-2' }}</td> -->
           </tr>
         </tbody>
       </table>

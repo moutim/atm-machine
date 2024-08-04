@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { StatementComponent } from './statement.component';
 import { HeaderatmModule } from '../../shared/components/HeaderATM/headeratm.module';
 import { ExitbuttonModule } from '../../shared/components/ExitButton/exitbutton.module';
@@ -15,7 +15,8 @@ import { FooterModule } from '../../shared/components/Footer/footer.module';
     HeaderatmModule,
     ExitbuttonModule,
     ShowbalanceModule,
-    FooterModule
+    FooterModule,
+    CurrencyPipe
   ]
 })
 export class StatementModule { }

@@ -6,6 +6,8 @@ import { HeaderatmModule } from '../../shared/components/HeaderATM/headeratm.mod
 import { FooterModule } from '../../shared/components/Footer/footer.module';
 import { SharedModule } from '../../shared/modules/shared.module';
 import { ShowbalanceModule } from '../../shared/components/ShowBalance/showbalance.module';
+import { LoadingModule } from '../../shared/components/Loading/loading.module';
+import { WarningModule } from '../../shared/components/Warning/warning.module';
 
 
 
@@ -19,7 +21,9 @@ import { ShowbalanceModule } from '../../shared/components/ShowBalance/showbalan
     HeaderatmModule,
     FooterModule,
     SharedModule,
-    ShowbalanceModule
+    ShowbalanceModule,
+    LoadingModule,
+    WarningModule
   ]
 })
 export class TransferModule { }

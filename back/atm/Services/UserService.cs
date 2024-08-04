@@ -26,8 +26,8 @@ namespace atm.Services
                 return null;
             }
 
-            int currentAccountBalance = user.CurrentAccounts.Sum(ca => ca.Balance);
-            int savingAccountBalance = user.SavingAccounts.Sum(sa => sa.Balance);
+            long currentAccountBalance = user.CurrentAccounts.Sum(ca => ca.Balance);
+            long savingAccountBalance = user.SavingAccounts.Sum(sa => sa.Balance);
 
             UserInfoDTO userInfo = new UserInfoDTO()
             {

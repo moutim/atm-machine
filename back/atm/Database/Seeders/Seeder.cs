@@ -29,8 +29,8 @@ namespace atm.Database.Seeders
             // Adiciona dados iniciais para CurrentAccounts
             var accounts = new CurrentAccount[]
             {
-                new CurrentAccount { AccountId = 1, UserId = 1, Balance = 1000 },
-                new CurrentAccount { AccountId = 2, UserId = 2, Balance = 1500 }
+                new CurrentAccount { AccountId = 1, UserId = 1, Balance = 5000 },
+                new CurrentAccount { AccountId = 2, UserId = 2, Balance = 5000 }
             };
             foreach (var account in accounts)
             {
@@ -40,7 +40,7 @@ namespace atm.Database.Seeders
             // Adiciona dados iniciais para SavingAccounts
             var savingAccounts = new SavingAccount[]
             {
-                new SavingAccount { AccountId = 1, UserId = 1, Balance = 5000 },
+                new SavingAccount { AccountId = 1, UserId = 1, Balance = 7000 },
                 new SavingAccount { AccountId = 2, UserId = 2, Balance = 7000 }
             };
             foreach (var savingAccount in savingAccounts)
@@ -60,32 +60,6 @@ namespace atm.Database.Seeders
             foreach (var transactionType in transactionTypes)
             {
                 context.TransactionTypes.Add(transactionType);
-            }
-
-            // Adiciona dados iniciais para Statements
-            var statements = new Statement[]
-            {
-                new Statement { TransactionId = 1, Date = DateTime.Now, Value = 1000, AddOrRemoved = 1 },
-                new Statement { TransactionId = 2, Date = DateTime.Now, Value = 1500, AddOrRemoved = 1 },
-                new Statement { TransactionId = 3, Date = DateTime.Now, Value = 5000, AddOrRemoved = 5 },
-                new Statement { TransactionId = 4, Date = DateTime.Now, Value = 7000, AddOrRemoved = 5 }
-            };
-            foreach (var statement in statements)
-            {
-                context.Statements.Add(statement);
-            }
-
-            // Adiciona dados iniciais para UserStatements
-            var userStatements = new UserStatement[]
-            {
-                new UserStatement { StatementId = 1, UserId = 1 },
-                new UserStatement { StatementId = 3, UserId = 1 },
-                new UserStatement { StatementId = 2, UserId = 2 },
-                new UserStatement { StatementId = 4, UserId = 2 }
-            };
-            foreach (var userStatement in userStatements)
-            {
-                context.UserStatements.Add(userStatement);
             }
 
             context.SaveChanges();

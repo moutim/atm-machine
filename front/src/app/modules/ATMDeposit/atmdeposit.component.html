@@ -7,8 +7,7 @@
         <h2>depósito</h2>
 
         <form [formGroup]="forms" (ngSubmit)="onSubmit()">
-          <input type="number" placeholder="valor" formControlName="value">
-
+          <input type="number" placeholder="valor" formControlName="amount">
 
           <button type="submit" [disabled]="forms.invalid">depositar</button>
         </form>

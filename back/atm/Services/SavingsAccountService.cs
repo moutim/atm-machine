@@ -20,14 +20,22 @@ namespace atm.Services
         public async Task<bool> Deposit(SavingsAccountDTO savingsInfo)
         {
             User? user = await _context.Users
+                .Include(u => u.SavingAccounts)
                 .Include(u => u.CurrentAccounts)
                 .FirstOrDefaultAsync(u => u.CPF == savingsInfo.CPF);
+            
+            SavingAccount? userSavingsAccount = user.SavingAccounts.FirstOrDefault();
+            CurrentAccount? userCurrentAccount = user.CurrentAccounts.FirstOrDefault();
+            long savingsAccountBalance = user.SavingAccounts.Sum(ca => ca.Balance);
+            long currentAccountBalance = user.CurrentAccounts.Sum(ca => ca.Balance);
 
-            SavingAccount? userAccount = user.SavingAccounts.FirstOrDefault();
+            if (currentAccountBalance <  savingsInfo.Amount)
+            {
+                return false;
+            }
 
-            int accountBalance = user.SavingAccounts.Sum(ca => ca.Balance);
-
-            accountBalance += savingsInfo.Amount;
+            userSavingsAccount.Balance += savingsInfo.Amount;
+            userCurrentAccount.Balance -= savingsInfo.Amount;
 
             await _statementService.CreateStatement(
                 (int)TransactionTypes.SavingsDeposit,
@@ -44,19 +52,21 @@ namespace atm.Services
         public async Task<bool> Withdraw(SavingsAccountDTO savingsInfo)
         {
             User? user = await _context.Users
+                .Include(u => u.SavingAccounts)
                 .Include(u => u.CurrentAccounts)
                 .FirstOrDefaultAsync(u => u.CPF == savingsInfo.CPF);
 
-            SavingAccount? userAccount = user.SavingAccounts.FirstOrDefault();
-
-            int accountBalance = user.SavingAccounts.Sum(ca => ca.Balance);
+            SavingAccount? userSavingsAccount = user.SavingAccounts.FirstOrDefault();
+            CurrentAccount? userCurrentAccount = user.CurrentAccounts.FirstOrDefault();
+            long accountBalance = user.SavingAccounts.Sum(ca => ca.Balance);
 
             if (accountBalance <  savingsInfo.Amount)
             {
                 return false;
             }
 
-            accountBalance -= savingsInfo.Amount;
+            userSavingsAccount.Balance -= savingsInfo.Amount;
+            userCurrentAccount.Balance += savingsInfo.Amount;
 
             await _statementService.CreateStatement(
                 (int)TransactionTypes.SavingsWithdrawal,

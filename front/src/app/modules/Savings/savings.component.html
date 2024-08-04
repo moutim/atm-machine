@@ -3,6 +3,8 @@
 <section class="limiter section-savings">
   <article class="article-savings">
     <div class="savings-forms">
+      <app-warning *ngIf="errorMessage.length" [text]="errorMessage" />
+
       <div *ngIf="!optionSelected && !savingsMade">
         <h1>o que deseja fazer?</h1>
 
@@ -12,7 +14,7 @@
             <option value="retirar">retirar</option>
           </select>
 
-          <input type="number" placeholder="valor" formControlName="value">
+          <input type="number" placeholder="valor" formControlName="amount">
 
           <button type="submit" [disabled]="forms.invalid">continuar</button>
         </form>
@@ -22,8 +24,8 @@
         <h2>dados da operação</h2>
 
         <ul class="info-list">
-          <li>opção: <span>guardar</span></li>
-          <li>valor: <span>R$ 550</span></li>
+          <li>opção: <span>{{ this.forms.get('option')?.value }}</span></li>
+          <li>valor: <span>R$ {{ this.forms.get('amount')?.value }}</span></li>
         </ul>
 
         <div class="buttons-savings">

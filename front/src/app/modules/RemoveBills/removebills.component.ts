@@ -1,10 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-removebills',
   templateUrl: './removebills.component.html',
-  styleUrl: './removebills.component.scss'
+  styleUrls: ['./removebills.component.scss']
 })
-export class RemovebillsComponent {
+export class RemovebillsComponent implements OnInit {
+  @Input() bills: any;
+  @Input() amount: number = 0;
+  arrayBills: Array<any> = [];
+  totalBills: number = 0;
 
+  ngOnInit() {
+    this.calculateTotal();
+  }
+
+  calculateTotal() {
+    console.log(this.bills);
+
+    for (let bill in this.bills) {
+      this.totalBills += this.bills[bill];
+
+      const billObj = {
+        amountBill: Number(bill),
+        quantity: this.bills[bill]
+      }
+
+      this.arrayBills.push(billObj);
+
+      console.log(this.arrayBills);
+    }
+  }
 }

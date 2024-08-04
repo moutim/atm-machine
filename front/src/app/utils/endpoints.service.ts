@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import IRegister from '../interfaces/IRegister';
 import ICheckCPF from '../interfaces/ICheckCPF';
 import IDepositInfo from '../interfaces/IDepositInfo';
+import IAuthenticatePassword from '../interfaces/IAuthenticatePassword';
+import IWithdraw from '../interfaces/IWithdraw';
+import ITransfer from '../interfaces/ITransfer';
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +47,7 @@ export class EndpointsService {
   userInfo(userId: number) {
     const headers: HttpHeaders = this.mountHeaders();
 
-    return this.http.get(`${this.host}/userInfo/${userId}`, { headers: headers })
+    return this.http.get(`${this.host}/userInfo/${userId}`, { headers: headers });
   }
 
   checkCpf(body: ICheckCPF) {
@@ -53,5 +56,41 @@ export class EndpointsService {
 
   deposit(body: IDepositInfo) {
     return this.http.post(`${this.host}/deposit`, body);
+  }
+
+  getStatements(userId: number) {
+    const headers: HttpHeaders = this.mountHeaders();
+
+    return this.http.get(`${this.host}/statement/${userId}`, { headers: headers });
+  }
+
+  authenticatePassword(body: IAuthenticatePassword) {
+    const headers: HttpHeaders = this.mountHeaders();
+
+    return this.http.post(`${this.host}/authenticatePassword`, body, { headers: headers });
+  }
+
+  withdraw(body: IWithdraw) {
+    const headers: HttpHeaders = this.mountHeaders();
+
+    return this.http.post(`${this.host}/withdraw`, body, { headers: headers });
+  }
+
+  transfer(body: ITransfer) {
+    const headers: HttpHeaders = this.mountHeaders();
+
+    return this.http.post(`${this.host}/transfer`, body, { headers: headers });
+  }
+
+  depositInSavingsAccount(body: IDepositInfo) {
+    const headers: HttpHeaders = this.mountHeaders();
+
+    return this.http.post(`${this.host}/savingsAccount/deposit`, body, { headers: headers });
+  }
+
+  withdrawInSavingsAccount(body: IDepositInfo) {
+    const headers: HttpHeaders = this.mountHeaders();
+
+    return this.http.post(`${this.host}/savingsAccount/withdraw`, body, { headers: headers });
   }
 }

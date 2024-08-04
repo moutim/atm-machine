@@ -7,6 +7,8 @@
   <div class="register-forms">
     <h1>crie sua conta</h1>
 
+    <app-warning *ngIf="errorMessage.length" [text]="errorMessage" />
+
     <form [formGroup]="forms" (ngSubmit)="onSubmit()">
       <input type="text" placeholder="nome" formControlName="firstName">
       <span *ngIf="forms.get('firstName')?.invalid && forms.get('firstName')?.touched" class="span-error">

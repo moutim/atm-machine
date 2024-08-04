@@ -29,6 +29,14 @@
       }
     }
 
+    button {
+      @include button-active-style(200px, 55px);
+
+      &:disabled {
+        @include button-disable-style(200px, 55px);
+      }
+    }
+
     span {
       font-weight: 500;
     }

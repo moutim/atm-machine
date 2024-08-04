@@ -10,6 +10,7 @@ export class ExitbuttonComponent {
   constructor(private router: Router) { }
 
   navigateToHome() {
+    localStorage.removeItem('userInfo');
     this.router.navigate(['/home/login']);
   }
 }

@@ -22,9 +22,9 @@ namespace atm.Controllers
         [HttpPost]
         public async Task<IActionResult> Withdraw([FromBody] WithdrawDTO withdrawInfo)
         {
-            bool withdrawResult = await _withdrawService.Withdraw(withdrawInfo);
+            Dictionary<int, int>? withdrawResult = await _withdrawService.Withdraw(withdrawInfo);
 
-            if (!withdrawResult)
+            if (withdrawResult == null)
             {
                 MessageDTO message = new MessageDTO()
                 {
@@ -38,7 +38,7 @@ namespace atm.Controllers
                 {
                     Message = "Saque realizado com sucesso!"
                 };
-                return Ok(message);
+                return Ok(withdrawResult);
             }
         }
     }

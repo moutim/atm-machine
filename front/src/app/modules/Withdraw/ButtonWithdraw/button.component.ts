@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,9 +8,11 @@ import { Router } from '@angular/router';
 })
 export class ButtonComponent {
   @Input() title: string = '';
+  @Input() value: number = 0;
   @Input() highlightBlue: boolean = false;
   @Input() highlightOrange: boolean = false;
   @Input() route: string = '';
+  @Output() valueSelected: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(private router: Router) { }
 
@@ -18,5 +20,10 @@ export class ButtonComponent {
     if (this.route) {
       this.router.navigate([`/atm/${this.route}`]);
     }
+  }
+
+  onClick() {
+    this.valueSelected.emit(this.value);
+    this.navigateTo();
   }
 }

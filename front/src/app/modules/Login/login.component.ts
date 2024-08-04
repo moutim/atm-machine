@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EndpointsService } from '../../utils/endpoints.service';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,14 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   forms: FormGroup = this.formBuilder.group({});
+  loading: boolean = false;
+  errorMessage: string = '';
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private api: EndpointsService
+  ) { }
 
   ngOnInit() {
     this.forms = this.formBuilder.group({
@@ -19,11 +26,35 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  private removeSpecialCharacters(input: string): string {
+    return input.split('-').join('').split('.').join('');
+  }
+
   onSubmit() {
     if (this.forms.valid) {
-      console.log('Form Submitted:', this.forms.value);
-    } else {
-      console.log('Form is invalid');
+      this.errorMessage = '';
+
+      const cpf: string = this.forms.get('CPF')?.value;
+      const cleanedCpf: number = Number(this.removeSpecialCharacters(cpf));
+
+      const body = {
+        cpf: cleanedCpf,
+        password: this.forms.get('password')?.value
+      };
+
+      this.loading = true;
+
+      this.api.login(body).subscribe({
+        next: (result: any) => {
+          localStorage.setItem('userInfo', JSON.stringify(result));
+          this.router.navigate(['/atm/operations']);
+        },
+        error: (err) => {
+          this.errorMessage = err.error.message;
+        }
+      });
+
+      this.loading = false;
     }
   }
 
@@ -33,9 +64,5 @@ export class LoginComponent implements OnInit {
 
   navigateToDeposit() {
     this.router.navigate(['/home/deposit']);
-  }
-
-  navigateToAtm() {
-    this.router.navigate(['/atm/operations']);
   }
 }

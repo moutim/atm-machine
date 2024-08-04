@@ -18,7 +18,6 @@ namespace atm.Controllers
             _depositService = depositService;
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Deposit([FromBody] DepositDTO depositTransfer)
         {
@@ -28,7 +27,7 @@ namespace atm.Controllers
             {
                 MessageDTO message = new MessageDTO()
                 {
-                    Message = "Não foi possível realizar a transferência."
+                    Message = "Não foi possível realizar o depósito."
                 };
                 return BadRequest(message);
             }
@@ -36,7 +35,7 @@ namespace atm.Controllers
             {
                 MessageDTO message = new MessageDTO()
                 {
-                    Message = "Tranferência realizada com sucesso."
+                    Message = "Depósito realizado com sucesso."
                 };
                 return Ok(message);
             }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import IRegister from '../../interfaces/IRegister';
+import { EndpointsService } from '../../utils/endpoints.service';
 
 @Component({
   selector: 'app-register',
@@ -9,8 +11,13 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   forms: FormGroup = this.formBuilder.group({});
+  errorMessage: string = '';
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private api: EndpointsService
+  ) { }
 
   ngOnInit() {
     this.forms = this.formBuilder.group({
@@ -33,10 +40,28 @@ export class RegisterComponent {
 
   onSubmit() {
     if (this.forms.valid) {
-      console.log('Form Submitted:', this.forms.value);
-    } else {
-      console.log('Form is invalid');
+      this.errorMessage = '';
+
+      const body: IRegister = {
+        firstName: this.forms.get('firstName')?.value,
+        lastName: this.forms.get('lastName')?.value,
+        password: this.forms.get('password')?.value,
+        cpf: Number(this.removeSpecialCharacters(this.forms.get('CPF')?.value))
+      }
+
+      this.api.register(body).subscribe({
+        next: (result) => {
+          this.router.navigate(['/home/login']);
+        },
+        error: (err) => {
+          this.errorMessage = err.error.message;
+        }
+      });
     }
+  }
+
+  private removeSpecialCharacters(input: string): string {
+    return input.split('-').join('').split('.').join('');
   }
 
   navigateToLogin() {

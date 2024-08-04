@@ -1,16 +1,15 @@
 <app-headeratm
-  title="Olá Vitor Moutim"
-  subtitle="último acesso em 30/07 às 19:23h"
+  title="Olá, {{ userAccountInfo.firstName }} {{ userAccountInfo.lastName }}"
+  subtitle="último acesso em {{ userAccountInfo.lastAcces | date:'dd/MM/yyyy HH:mm' }}"
 ></app-headeratm>
 
 <article class="limiter">
-  <app-warning />
+  <app-warning text="O limite de saque é de R$ 1.000,00 das 22h às 06h e de R$ 10.000,00 das 06h01 às 21h59." />
 </article>
 
 <section class="limiter operations-atm">
   <article class="container-balance">
-    <app-showbalance value="9,90"></app-showbalance>
-
+    <app-showbalance></app-showbalance>
     <img src="../../assets/ad-atm.png" alt="Cartões Itaú">
   </article>
 

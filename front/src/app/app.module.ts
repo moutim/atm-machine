@@ -15,6 +15,7 @@ import { StatementModule } from './modules/Statement/statement.module';
 import { AtmdepositModule } from './modules/ATMDeposit/atmdeposit.module';
 import { TransferModule } from './modules/Transfer/transfer.module';
 import { SavingsModule } from './modules/Savings/savings.module';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { SavingsModule } from './modules/Savings/savings.module';
     TransferModule,
     SavingsModule
   ],
-  providers: [],
+  providers: [
+    provideHttpClient()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

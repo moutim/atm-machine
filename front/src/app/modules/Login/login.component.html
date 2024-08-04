@@ -28,13 +28,15 @@
 
   <article class="login-register">
     <div class="container-forms">
-      <h1>acesse sua conta</h1>
+      <app-loading *ngIf="loading"/>
+      <h1 *ngIf="!loading">acesse sua conta</h1>
+      <app-warning *ngIf="errorMessage.length" [text]="errorMessage" />
 
-      <form [formGroup]="forms" (ngSubmit)="onSubmit()">
+      <form [formGroup]="forms" (ngSubmit)="onSubmit()" *ngIf="!loading">
         <input type="text" placeholder="cpf" formControlName="CPF" appCpfFormat>
         <input type="password" placeholder="senha" formControlName="password">
 
-        <button type="submit" [disabled]="forms.invalid" (click)="navigateToAtm()">acessar</button>
+        <button type="submit" [disabled]="forms.invalid">acessar</button>
       </form>
     </div>
 

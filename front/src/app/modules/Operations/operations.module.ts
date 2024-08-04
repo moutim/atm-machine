@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
 import { OperationsComponent } from './operations.component';
 import { HeaderatmModule } from '../../shared/components/HeaderATM/headeratm.module';
 import { ShowbalanceModule } from '../../shared/components/ShowBalance/showbalance.module';
@@ -18,6 +18,10 @@ import { ExitbuttonModule } from '../../shared/components/ExitButton/exitbutton.
     ShowbalanceModule,
     WarningModule,
     ExitbuttonModule
+  ],
+  providers: [
+    DatePipe,
+    CurrencyPipe
   ]
 })
 export class OperationsModule { }

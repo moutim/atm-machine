@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { ShowbalanceComponent } from './showbalance.component';
 
 
@@ -9,7 +9,8 @@ import { ShowbalanceComponent } from './showbalance.component';
     ShowbalanceComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CurrencyPipe
   ],
   exports: [
     ShowbalanceComponent

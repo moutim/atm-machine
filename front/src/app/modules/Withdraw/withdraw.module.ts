@@ -7,6 +7,7 @@ import { ShowbalanceModule } from '../../shared/components/ShowBalance/showbalan
 import { ButtonComponent } from './ButtonWithdraw/button.component';
 import { ExitbuttonModule } from '../../shared/components/ExitButton/exitbutton.module';
 import { FooterModule } from '../../shared/components/Footer/footer.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { FooterModule } from '../../shared/components/Footer/footer.module';
     WarningModule,
     ShowbalanceModule,
     ExitbuttonModule,
-    FooterModule
+    FooterModule,
+    ReactiveFormsModule,
+    WarningModule
   ]
 })
 export class WithdrawModule { }

@@ -16,7 +16,7 @@ namespace atm.Services
             _statementService=statementService;
         }
 
-        public async Task<bool> Withdraw(WithdrawDTO withdrawInfo)
+        public async Task<Dictionary<int, int>?> Withdraw(WithdrawDTO withdrawInfo)
         {
             var user = await _context.Users
                 .Include(u => u.CurrentAccounts)
@@ -25,7 +25,7 @@ namespace atm.Services
             var currentAccount = user?.CurrentAccounts.FirstOrDefault();
             if (currentAccount == null || currentAccount.Balance < withdrawInfo.Amount)
             {
-                return false;
+                return null;
             }
 
             currentAccount.Balance -= withdrawInfo.Amount;
@@ -34,7 +34,28 @@ namespace atm.Services
             await _statementService.CreateStatement
                 ((int)TransactionTypes.Deposit, withdrawInfo.Amount, withdrawInfo.UserId, (int)AddOrRemoved.Removed);
 
-            return true;
+            var notes = CalculateNotes(withdrawInfo.Amount);
+
+
+            return notes;
+        }
+
+        private Dictionary<int, int> CalculateNotes(decimal amount)
+        {
+            var notes = new Dictionary<int, int>();
+            int[] denominations = { 50, 20, 10 };
+
+            foreach (var denomination in denominations)
+            {
+                int noteCount = (int)(amount / denomination);
+                if (noteCount > 0)
+                {
+                    notes[denomination] = noteCount;
+                    amount -= noteCount * denomination;
+                }
+            }
+
+            return notes;
         }
     }
 }

@@ -46,10 +46,10 @@ section {
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
-      padding: 0 40px;
+      padding: 30px 40px;
       background-color: white;
       width: 550px;
-      height: 400px;
+      height: fit-content;
       border-radius: 10px;
 
       h1 {

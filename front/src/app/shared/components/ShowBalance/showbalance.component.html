@@ -7,7 +7,7 @@
   <div class="info">
     <p *ngIf="!visibleBalance">veja sem sair da tela</p>
     <span *ngIf="!visibleBalance">{{ !savings ? 'saldo' : 'saldo na poupança'}}</span>
-    <span *ngIf="visibleBalance">total disponível: R$ {{ value }}</span>
+    <span *ngIf="visibleBalance">total disponível: {{ userAccountInfo.currentAccountBalance | currency:'BRL':'symbol':'1.2-2' }}</span>
   </div>
 
   <div>

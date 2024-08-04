@@ -5,8 +5,12 @@
   </button>
 
   <div class="deposit-forms">
+    <app-loading *ngIf="loading"/>
+
     <div *ngIf="!cpfExists && !depositMade">
       <h1>depósito</h1>
+
+      <app-warning *ngIf="errorMessage.length" [text]="errorMessage" />
 
       <form [formGroup]="forms" (ngSubmit)="onSubmit()">
         <input type="text" placeholder="cpf" formControlName="CPF" appCpfFormat>
@@ -14,7 +18,7 @@
           O CPF deve ter 11 dígitos
         </span>
 
-        <input type="number" placeholder="valor" formControlName="value">
+        <input type="number" placeholder="valor" formControlName="amount">
 
 
         <button type="submit" [disabled]="forms.invalid">continuar</button>
@@ -25,10 +29,10 @@
       <h2>dados do depósito</h2>
 
       <ul class="info-list">
-        <li>nome: <span>Vitor</span></li>
-        <li>sobrenome: <span>Moutim</span></li>
-        <li>cpf: <span>512.255.118-95</span></li>
-        <li>valor: <span>R$ 550</span></li>
+        <li>nome: <span>{{ userInfo.firstName }}</span></li>
+        <li>sobrenome: <span>{{ userInfo.lastName }}</span></li>
+        <li>cpf: <span>{{ userInfo.cpf }}</span></li>
+        <li>valor: <span>{{ forms.get('amount')?.value | currency:'BRL':'symbol':'1.2-2' }}</span></li>
       </ul>
 
       <div class="buttons-deposit">

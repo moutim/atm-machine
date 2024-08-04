@@ -16,8 +16,6 @@ export class RemovebillsComponent implements OnInit {
   }
 
   calculateTotal() {
-    console.log(this.bills);
-
     for (let bill in this.bills) {
       this.totalBills += this.bills[bill];
 
@@ -27,8 +25,6 @@ export class RemovebillsComponent implements OnInit {
       }
 
       this.arrayBills.push(billObj);
-
-      console.log(this.arrayBills);
     }
   }
 }

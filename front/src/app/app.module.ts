@@ -9,7 +9,6 @@ import { RegisterModule } from './modules/Register/register.module';
 import { DepositModule } from './modules/Deposit/deposit.module';
 import { OperationsModule } from './modules/Operations/operations.module';
 import { WithdrawModule } from './modules/Withdraw/withdraw.module';
-import { PasswordModule } from './modules/Password/password.module';
 import { RemovebillsModule } from './modules/RemoveBills/removebills.module';
 import { StatementModule } from './modules/Statement/statement.module';
 import { AtmdepositModule } from './modules/ATMDeposit/atmdeposit.module';
@@ -30,7 +29,6 @@ import { provideHttpClient } from '@angular/common/http';
     DepositModule,
     OperationsModule,
     WithdrawModule,
-    PasswordModule,
     RemovebillsModule,
     StatementModule,
     AtmdepositModule,

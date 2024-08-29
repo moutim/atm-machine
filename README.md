@@ -1,6 +1,7 @@
 # 💳 Caixa Eletrônico
 
-Bem-vindo ao projeto de Caixa Eletrônico! Este projeto simula as funcionalidades de um caixa eletrônico, permitindo saques, depósitos, transferências, consulta de extrato, e gerenciando contas correntes e poupanças.
+Bem-vindo ao projeto de Caixa Eletrônico! Desenvolvido para o teste técnico do Itaú, este projeto fullstack simula as funcionalidades de um caixa eletrônico, permitindo saques, depósitos, transferências, consulta de extrato, e gerenciamento de contas corrente e poupança.
+
 
 ![image](https://github.com/user-attachments/assets/6c1f62be-5b6c-4d25-87ea-1410d8f93845)
 
